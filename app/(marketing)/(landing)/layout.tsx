@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer";
 import HomeNavbar from "@/components/navbar/home/home-navbar";
 import type { ReactNode } from "react";
 
@@ -16,7 +17,9 @@ export default function MainLayout({
         {children}
       </div>
 
-      <footer>{/* <Footer /> */}</footer>
+      <footer>
+        <Footer />
+      </footer>
     </main>
   );
 }

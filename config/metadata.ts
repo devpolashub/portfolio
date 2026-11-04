@@ -84,7 +84,7 @@ export function createMetadata({
 
   const pageTitle = isHomePage
     ? `${siteConfig.name} — ${siteConfig.title}`
-    : `${title} | ${siteConfig.brandName}`;
+    : `${title} | ${siteConfig.name}`;
 
   return {
     title: isHomePage ? { absolute: pageTitle } : title,

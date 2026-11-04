@@ -4,5 +4,9 @@ allowBuilds:
   unrs-resolver: false
   workerd: true
 permissions:
+  '@prisma/composer':
+    skills: true
+  '@prisma/orm-postgres':
+    skills: true
   prisma:
     skills: true

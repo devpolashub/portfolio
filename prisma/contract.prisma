@@ -1,21 +1,763 @@
 // use prisma-8
 
-model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  username  String?
-  name      String?
-  posts     Post[]
-  createdAt TimestamptzString @default(now())
-  updatedAt temporal.updatedAtString()
+// ENUMS
+enum ProjectCategory {
+  FULL_STACK
+  FRONTEND
+  BACKEND
+  AI
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String?
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-  createdAt TimestamptzString @default(now())
-  updatedAt temporal.updatedAtString()
+enum ProjectStatus {
+  COMPLETED
+  IN_PROGRESS
+  MAINTAINED
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  FREELANCE
+  SELF_EMPLOYED
+}
+
+enum EducationStatus {
+  COMPLETED
+  IN_PROGRESS
+  PAUSED
+}
+
+enum ProfileItemType {
+  ENGINEERING_PRACTICE
+  AREA_OF_INTEREST
+}
+
+enum ContactMessageStatus {
+  NEW
+  READ
+  REPLIED
+  ARCHIVED
+}
+
+enum ProjectLinkType {
+  REPOSITORY
+  LIVE_DEMO
+  DOCUMENTATION
+  CASE_STUDY
+  OTHER
+}
+
+enum MediaAssetKind {
+  IMAGE
+  VIDEO
+  DOCUMENT
+  OTHER
+}
+
+enum BlogPostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum NewsletterStatus {
+  PENDING
+  SUBSCRIBED
+  UNSUBSCRIBED
+}
+
+enum TestimonialStatus {
+  DRAFT
+  PUBLISHED
+  HIDDEN
+}
+
+// BETTER AUTH
+model User {
+  id            String     @id @onCreate(uuid(7))
+  name          String
+  email         String     @unique
+  emailVerified Boolean    @default(false)
+  image         String?
+  role          String     @default("user")
+
+  sessions      Session[]
+  accounts      Account[]
+  blogPosts     BlogPost[]
+  auditLogs     AuditLog[]
+
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([createdAt])
+}
+
+model Session {
+  id        String   @id @onCreate(uuid(7))
+  expiresAt DateTime
+  token     String   @unique
+  ipAddress String?
+  userAgent String?
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([userId, expiresAt])
+}
+
+model Account {
+  id                    String    @id @onCreate(uuid(7))
+  accountId             String
+  providerId            String
+  userId                String
+
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id @onCreate(uuid(7))
+  identifier String
+  value      String
+  expiresAt  DateTime
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([identifier, expiresAt])
+}
+
+// PROFILE
+model Profile {
+  // A singleton profile record.
+  id            String            @id @default("main")
+
+  name          String
+  username      String?
+  role          String?
+  headline      String?
+  description   String?
+
+  website       String?
+  email         String?
+  phone         String?
+
+  location      String?
+  city          String?
+  region        String?
+  country       String?
+
+  brandName     String?
+  brandTagline  String?
+
+  avatarAssetId Uuid?
+  avatarAsset   MediaAsset?       @relation("ProfileAvatar", fields: [avatarAssetId], references: [id], onDelete: SetNull)
+
+  resumeAssetId Uuid?
+  resumeAsset   MediaAsset?       @relation("ProfileResume", fields: [resumeAssetId], references: [id], onDelete: SetNull)
+
+  socialLinks   SocialLink[]
+  languages     ProfileLanguage[]
+  items         ProfileItem[]
+
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @default(now()) @onCreate(now()) @onUpdate(now())
+}
+
+model SocialLink {
+  id        Uuid     @id @onCreate(uuid(7))
+
+  platform  String
+  label     String?
+  url       String
+  username  String?
+  icon      String?
+  sortOrder Int      @default(0)
+  isVisible Boolean  @default(true)
+
+  profileId String   @default("main")
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@unique([profileId, platform])
+  @@index([profileId, isVisible, sortOrder])
+}
+
+model ProfileLanguage {
+  id          Uuid     @id @onCreate(uuid(7))
+
+  name        String
+  code        String?
+  proficiency String?
+  sortOrder   Int      @default(0)
+  isVisible   Boolean  @default(true)
+
+  profileId   String   @default("main")
+  profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([profileId, isVisible, sortOrder])
+}
+
+model ProfileItem {
+  id          Uuid            @id @onCreate(uuid(7))
+
+  type        ProfileItemType
+  title       String
+  description String?
+  sortOrder   Int             @default(0)
+  isVisible   Boolean         @default(true)
+
+  profileId   String          @default("main")
+  profile     Profile         @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([profileId, type, isVisible, sortOrder])
+}
+
+// SKILLS
+model SkillGroup {
+  id          Uuid     @id @onCreate(uuid(7))
+
+  name        String
+  slug        String   @unique
+  description String?
+  sortOrder   Int      @default(0)
+  isVisible   Boolean  @default(true)
+
+  skills      Skill[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([isVisible, sortOrder])
+}
+
+model Skill {
+  id                  Uuid                 @id @onCreate(uuid(7))
+
+  name                String
+  slug                String               @unique
+  description         String?
+  icon                String?
+  website             String?
+
+  proficiency         Int?
+  sortOrder           Int                  @default(0)
+  isFeatured          Boolean              @default(false)
+  isVisible           Boolean              @default(true)
+
+  groupId             Uuid?
+  group               SkillGroup?          @relation(fields: [groupId], references: [id], onDelete: SetNull)
+
+  projectSkills       ProjectSkill[]
+  certificationSkills CertificationSkill[]
+  experienceSkills    ExperienceSkill[]
+
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([groupId, isVisible, sortOrder])
+  @@index([isFeatured, isVisible])
+}
+
+// PROJECTS
+model Project {
+  id           Uuid            @id @onCreate(uuid(7))
+
+  title        String
+  slug         String          @unique
+  summary      String
+  description  String?
+
+  category     ProjectCategory
+  status       ProjectStatus   @default(COMPLETED)
+
+  featured     Boolean         @default(false)
+  published    Boolean         @default(true)
+  sortOrder    Int             @default(0)
+
+  problem      String?
+  solution     String?
+  architecture String[]        @default([])
+  challenges   String[]        @default([])
+  outcomes     String[]        @default([])
+
+  publishedAt  DateTime?
+
+  coverImageId Uuid?
+  coverImage   MediaAsset?     @relation("ProjectCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+
+  skills       ProjectSkill[]
+  images       ProjectImage[]
+  links        ProjectLink[]
+  views        ProjectView[]
+
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([published, featured, sortOrder])
+  @@index([published, category, sortOrder])
+  @@index([published, publishedAt])
+  @@fullTextIndex([title, summary, description], name: "project_search")
+}
+
+model ProjectSkill {
+  projectId Uuid
+  skillId   Uuid
+
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  skill     Skill   @relation(fields: [skillId], references: [id], onDelete: Restrict)
+
+  sortOrder Int     @default(0)
+
+  @@id([projectId, skillId])
+  @@index([skillId])
+}
+
+model ProjectLink {
+  id        Uuid            @id @onCreate(uuid(7))
+
+  type      ProjectLinkType
+  label     String
+  url       String
+  sortOrder Int             @default(0)
+
+  projectId Uuid
+  project   Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@unique([projectId, url])
+  @@index([projectId, sortOrder])
+}
+
+// CERTIFICATIONS
+model Certification {
+  id            Uuid                 @id @onCreate(uuid(7))
+
+  name          String
+  issuer        String
+  description   String?
+
+  credentialId  String?
+  credentialUrl String?
+
+  issueDate     DateTime?
+  expiryDate    DateTime?
+
+  imageAssetId  Uuid?
+  imageAsset    MediaAsset?          @relation("CertificationImage", fields: [imageAssetId], references: [id], onDelete: SetNull)
+
+  sortOrder     Int                  @default(0)
+  isVisible     Boolean              @default(true)
+
+  skills        CertificationSkill[]
+
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([isVisible, sortOrder])
+  @@index([issueDate])
+}
+
+model CertificationSkill {
+  certificationId Uuid
+  skillId         Uuid
+
+  certification   Certification @relation(fields: [certificationId], references: [id], onDelete: Cascade)
+  skill           Skill         @relation(fields: [skillId], references: [id], onDelete: Restrict)
+
+  @@id([certificationId, skillId])
+  @@index([skillId])
+}
+
+// EXPERIENCE
+model Experience {
+  id               Uuid              @id @onCreate(uuid(7))
+
+  company          String
+  position         String
+  description      String?
+
+  employmentType   EmploymentType
+
+  location         String?
+  companyUrl       String?
+
+  companyLogoId    Uuid?
+  companyLogo      MediaAsset?       @relation("ExperienceLogo", fields: [companyLogoId], references: [id], onDelete: SetNull)
+
+  startDate        DateTime
+  endDate          DateTime?
+  isCurrent        Boolean           @default(false)
+
+  responsibilities String[]          @default([])
+  achievements     String[]          @default([])
+
+  sortOrder        Int               @default(0)
+  isVisible        Boolean           @default(true)
+
+  skills           ExperienceSkill[]
+
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([isVisible, sortOrder])
+  @@index([isCurrent, startDate])
+}
+
+model ExperienceSkill {
+  experienceId Uuid
+  skillId      Uuid
+
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  skill        Skill      @relation(fields: [skillId], references: [id], onDelete: Restrict)
+
+  @@id([experienceId, skillId])
+  @@index([skillId])
+}
+
+// EDUCATION
+model Education {
+  id                Uuid            @id @onCreate(uuid(7))
+
+  institution       String
+  degree            String
+  field             String?
+  description       String?
+
+  institutionUrl    String?
+  location          String?
+
+  institutionLogoId Uuid?
+  institutionLogo   MediaAsset?     @relation("EducationLogo", fields: [institutionLogoId], references: [id], onDelete: SetNull)
+
+  startDate         DateTime
+  endDate           DateTime?
+  status            EducationStatus @default(COMPLETED)
+
+  grade             String?
+  sortOrder         Int             @default(0)
+  isVisible         Boolean         @default(true)
+
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([isVisible, sortOrder])
+  @@index([startDate])
+}
+
+// CONTACT MESSAGES
+model ContactMessage {
+  id        Uuid                 @id @onCreate(uuid(7))
+
+  name      String
+  email     String
+  subject   String?
+  message   String
+
+  status    ContactMessageStatus @default(NEW)
+
+  readAt    DateTime?
+  repliedAt DateTime?
+
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([status, createdAt])
+}
+
+// MEDIA ASSETS
+model MediaAsset {
+  id                  Uuid            @id @onCreate(uuid(7))
+
+  name                String
+  url                 String
+  publicId            String?
+  provider            String          @default("cloudinary")
+  kind                MediaAssetKind  @default(IMAGE)
+
+  mimeType            String?
+  sizeBytes           Int?
+
+  width               Int?
+  height              Int?
+
+  altText             String?
+  caption             String?
+  folder              String?
+
+  isPublic            Boolean         @default(true)
+
+  profileAvatars      Profile[]       @relation("ProfileAvatar")
+  profileResumes      Profile[]       @relation("ProfileResume")
+
+  projectCovers       Project[]       @relation("ProjectCover")
+  projectImages       ProjectImage[]
+
+  certificationImages Certification[] @relation("CertificationImage")
+  experienceLogos     Experience[]    @relation("ExperienceLogo")
+  educationLogos      Education[]     @relation("EducationLogo")
+
+  blogCovers          BlogPost[]      @relation("BlogCover")
+  testimonialAvatars  Testimonial[]   @relation("TestimonialAvatar")
+  seoImages           PageSeo[]       @relation("SeoOgImage")
+
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@unique([provider, publicId])
+  @@index([kind, createdAt])
+  @@index([folder, createdAt])
+}
+
+model ProjectImage {
+  id           Uuid       @id @onCreate(uuid(7))
+
+  altText      String?
+  caption      String?
+  sortOrder    Int        @default(0)
+
+  projectId    Uuid
+  project      Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  mediaAssetId Uuid
+  mediaAsset   MediaAsset @relation(fields: [mediaAssetId], references: [id], onDelete: Restrict)
+
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@unique([projectId, sortOrder])
+  @@unique([projectId, mediaAssetId])
+}
+
+// TESTIMONIALS
+model Testimonial {
+  id         Uuid              @id @onCreate(uuid(7))
+
+  name       String
+  role       String?
+  company    String?
+  content    String
+
+  companyUrl String?
+
+  status     TestimonialStatus @default(DRAFT)
+  featured   Boolean           @default(false)
+  sortOrder  Int               @default(0)
+
+  avatarId   Uuid?
+  avatar     MediaAsset?       @relation("TestimonialAvatar", fields: [avatarId], references: [id], onDelete: SetNull)
+
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([status, featured, sortOrder])
+}
+
+// BLOG CATEGORIES
+model BlogCategory {
+  id          Uuid       @id @onCreate(uuid(7))
+
+  name        String
+  slug        String     @unique
+  description String?
+
+  sortOrder   Int        @default(0)
+  isVisible   Boolean    @default(true)
+
+  posts       BlogPost[]
+
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([isVisible, sortOrder])
+}
+
+// BLOG TAGS
+model BlogTag {
+  id        Uuid          @id @onCreate(uuid(7))
+
+  name      String
+  slug      String        @unique
+
+  posts     BlogPostTag[]
+
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @default(now()) @onCreate(now()) @onUpdate(now())
+}
+
+// BLOG POSTS
+model BlogPost {
+  id           Uuid           @id @onCreate(uuid(7))
+
+  title        String
+  slug         String         @unique
+  excerpt      String?
+  content      String
+
+  status       BlogPostStatus @default(DRAFT)
+
+  readingTime  Int?
+  featured     Boolean        @default(false)
+
+  publishedAt  DateTime?
+
+  categoryId   Uuid?
+  category     BlogCategory?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  authorId     String?
+  author       User?          @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  coverImageId Uuid?
+  coverImage   MediaAsset?    @relation("BlogCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+
+  tags         BlogPostTag[]
+
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([status, publishedAt])
+  @@index([categoryId, status, publishedAt])
+  @@index([authorId])
+  @@index([featured, status])
+  @@fullTextIndex([title, excerpt, content], name: "blog_post_search")
+}
+
+model BlogPostTag {
+  postId Uuid
+  tagId  Uuid
+
+  post   BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag    BlogTag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+  @@index([tagId])
+}
+
+// PAGE SEO
+model PageSeo {
+  id            Uuid        @id @onCreate(uuid(7))
+
+  path          String      @unique
+
+  title         String?
+  description   String?
+
+  canonicalUrl  String?
+
+  noIndex       Boolean     @default(false)
+  noFollow      Boolean     @default(false)
+
+  ogTitle       String?
+  ogDescription String?
+
+  ogImageId     Uuid?
+  ogImage       MediaAsset? @relation("SeoOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @default(now()) @onCreate(now()) @onUpdate(now())
+}
+
+// NEWSLETTER
+model NewsletterSubscriber {
+  id                    Uuid             @id @onCreate(uuid(7))
+
+  email                 String           @unique
+
+  status                NewsletterStatus @default(PENDING)
+
+  // Store hashes of generated tokens, never raw tokens.
+  confirmationTokenHash String?          @unique
+  unsubscribeTokenHash  String           @unique
+
+  source                String?
+  consentedAt           DateTime         @default(now())
+  confirmedAt           DateTime?
+  unsubscribedAt        DateTime?
+
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@index([status, createdAt])
+}
+
+// AUDIT LOGS
+model AuditLog {
+  id         Uuid     @id @onCreate(uuid(7))
+
+  action     String
+  entityType String
+  entityId   String?
+
+  metadata   Jsonb?
+
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  createdAt  DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([entityType, entityId, createdAt])
+  @@index([action, createdAt])
+}
+
+// PAGE ANALYTICS
+model PageView {
+  id          Uuid     @id @onCreate(uuid(7))
+
+  path        String
+  referrer    String?
+
+  countryCode String?
+  visitorHash String?
+
+  viewedAt    DateTime @default(now())
+
+  @@index([path, viewedAt])
+  @@index([visitorHash, viewedAt])
+  @@index([viewedAt])
+}
+
+// PROJECT ANALYTICS
+model ProjectView {
+  id          Uuid     @id @onCreate(uuid(7))
+
+  projectId   Uuid
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  visitorHash String?
+  referrer    String?
+
+  viewedAt    DateTime @default(now())
+
+  @@index([projectId, viewedAt])
+  @@index([visitorHash, viewedAt])
+  @@index([viewedAt])
 }

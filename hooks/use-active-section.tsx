@@ -1,53 +1,59 @@
 "use client";
 
+import { scrollState } from "@/utils/scroll-to-section";
 import { useEffect, useState } from "react";
 
-export default function useActiveSectionId() {
-  const [activeId, setActiveId] = useState("home");
+export default function useActiveSectionId(offsetRatio = 0.35) {
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
     let frameId = 0;
 
-    const updateActiveSection = () => {
+    const update = () => {
       cancelAnimationFrame(frameId);
 
       frameId = requestAnimationFrame(() => {
-        const sections = document.querySelectorAll<HTMLElement>("section[id]");
+        // While a nav click is scrolling, hold the clicked section as active
+        // so the indicator slides once instead of hopping through every section
+        if (scrollState.locked) {
+          setActiveId((prev) =>
+            prev === scrollState.targetId ? prev : scrollState.targetId,
+          );
+          return;
+        }
 
+        const sections = document.querySelectorAll<HTMLElement>("section[id]");
         if (!sections.length) return;
 
-        const activationPoint = window.scrollY + window.innerHeight * 0.35;
+        const activationPoint =
+          window.scrollY + window.innerHeight * offsetRatio;
         let currentId = sections[0].id;
 
         for (const section of sections) {
-          if (activationPoint >= section.offsetTop) {
-            currentId = section.id;
-          } else {
-            break;
-          }
+          const top = section.getBoundingClientRect().top + window.scrollY;
+          if (activationPoint >= top) currentId = section.id;
         }
 
-        setActiveId((previousId) =>
-          previousId === currentId ? previousId : currentId,
-        );
+        const atBottom =
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 2;
+        if (atBottom) currentId = sections[sections.length - 1].id;
+
+        setActiveId((prev) => (prev === currentId ? prev : currentId));
       });
     };
 
-    updateActiveSection();
+    update();
 
-    window.addEventListener("scroll", updateActiveSection, {
-      passive: true,
-    });
-    window.addEventListener("resize", updateActiveSection, {
-      passive: true,
-    });
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
 
     return () => {
       cancelAnimationFrame(frameId);
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [offsetRatio]);
 
   return activeId;
 }
