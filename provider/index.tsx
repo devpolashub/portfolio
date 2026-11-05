@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { TooltipProvider } from "../components/ui/tooltip";
 import ThemeProvider from "./theme-provider";
+import { SmoothScrollProvider } from "./smooth-scroll-provider";
 
 export default function Provider({
   children,
@@ -8,8 +9,10 @@ export default function Provider({
   children: ReactNode;
 }>) {
   return (
-    <TooltipProvider>
-      <ThemeProvider>{children}</ThemeProvider>
-    </TooltipProvider>
+    <SmoothScrollProvider>
+      <TooltipProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </TooltipProvider>
+    </SmoothScrollProvider>
   );
 }

@@ -1,22 +1,38 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ReactNode } from "react";
+import { type ReactNode, type ReactElement } from "react";
 import { motion } from "motion/react";
-import { Clock3, Globe, Layers, Sparkles } from "lucide-react";
+import {
+  Check,
+  Clock3,
+  ExternalLink,
+  Layers3,
+  Lightbulb,
+  ListChecks,
+  Sparkles,
+  Target,
+} from "lucide-react";
+
 import { FaGithub } from "react-icons/fa";
 
-import { Project } from "./data/project-data";
+import type { Project } from "./data/project-data";
 
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+
 import { getStatusBadge } from "./project-badge";
 
 interface ProjectDialogProps {
-  children: ReactNode;
+  children: ReactElement;
   project: Project;
 }
 
@@ -26,160 +42,186 @@ export default function ProjectDialog({
 }: ProjectDialogProps) {
   return (
     <Dialog>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger render={children}>{children}</DialogTrigger>
 
-      <DialogContent className='bg-[#090512] shadow-2xl shadow-purple-950/50 p-0 border-purple-900/40 h-[90vh] overflow-hidden data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95'>
-        {/* Glow Background */}
+      <DialogContent className='flex flex-col gap-0 bg-background p-0 border-border rounded-2xl w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-5xl max-h-[92dvh] overflow-hidden'>
+        {/* Scrollable dialog body */}
+        <div className='flex-1 min-h-0 overflow-y-auto'>
+          {/* Project cover */}
+          <div className='relative bg-muted max-h-105 aspect-video overflow-hidden'>
+            <Image
+              src={project.thumbnail}
+              alt={`${project.title} project cover`}
+              fill
+              sizes='(max-width: 768px) 100vw, 900px'
+              className='object-cover'
+            />
 
-        <div className='-z-10 absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(88,28,135,0.45),transparent_45%)] pointer-events-none' />
+            <div className='absolute inset-0 bg-linear-to-t from-background via-background/20 to-transparent' />
 
-        {/* Cover */}
-
-        <div className='relative rounded-t-lg aspect-video overflow-hidden'>
-          <Image
-            src={project.thumbnail}
-            alt={`${project.title} preview`}
-            fill
-            className='object-cover hover:scale-105 transition duration-700'
-          />
-
-          <div className='absolute inset-0 bg-linear-to-t from-[#090512] via-black/40 to-transparent' />
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.5,
-            }}
-            className='bottom-5 left-5 absolute'
-          >
-            <Badge className='bg-purple-500/20 backdrop-blur border-purple-400/30 text-purple-100'>
-              {project.category}
-            </Badge>
-          </motion.div>
-        </div>
-
-        <div className='space-y-10 p-6 overflow-y-auto custom-scrollbar'>
-          {/* Header */}
-
-          <motion.section
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.15,
-              duration: 0.5,
-            }}
-          >
-            <h2 className='bg-clip-text bg-linear-to-r from-white via-purple-200 to-purple-500 font-bold text-transparent text-3xl'>
-              {project.title}
-            </h2>
-
-            <p className='mt-2 text-muted-foreground'>{project.subtitle}</p>
-
-            <div className='flex flex-wrap items-center gap-3 mt-5'>
-              <div className='flex items-center gap-2 bg-purple-950/30 px-3 py-1 border border-purple-900/40 rounded-full text-sm'>
-                <Clock3 className='w-4 h-4 text-purple-400' />
-                {project.duration}
-              </div>
-
-              <Badge variant='outline'>{project.role}</Badge>
+            <div className='bottom-5 sm:bottom-7 absolute inset-x-5 sm:inset-x-8 flex flex-wrap items-center gap-2'>
+              <Badge className='bg-black/50 backdrop-blur-md border-white/20 text-white'>
+                {project.category}
+              </Badge>
 
               {getStatusBadge(project.status)}
             </div>
-          </motion.section>
+          </div>
 
-          <AnimatedSection title='Gallery'>
-            <div className='gap-5 grid md:grid-cols-2'>
-              {project.gallery.map((image, index) => (
-                <motion.div
-                  key={image}
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    delay: index * 0.08,
-                  }}
-                  className='group relative border border-purple-900/40 rounded-xl aspect-video overflow-hidden'
-                >
-                  <Image
-                    src={image}
-                    alt='Project screenshot'
-                    fill
-                    className='object-cover group-hover:scale-110 transition duration-500'
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </AnimatedSection>
+          <div className='space-y-10 px-5 sm:px-8 pb-8 sm:pb-10'>
+            {/* Project header */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className='space-y-4 -mt-1'
+            >
+              <DialogHeader className='space-y-2 text-left'>
+                <DialogTitle className='font-bold text-2xl sm:text-4xl tracking-tight'>
+                  {project.title}
+                </DialogTitle>
 
-          <AnimatedSection title='About Project'>
-            <p className='text-muted-foreground leading-relaxed'>
-              {project.description}
-            </p>
-          </AnimatedSection>
+                <p className='max-w-2xl text-muted-foreground text-sm sm:text-base leading-7'>
+                  {project.subtitle}
+                </p>
+              </DialogHeader>
 
-          <AnimatedSection title='Technologies'>
-            <div className='flex flex-wrap gap-2'>
-              {project.technologies.map((tech) => (
-                <Badge
-                  key={tech}
-                  variant='secondary'
-                  className='bg-purple-950/40 border-purple-900/40'
-                >
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </AnimatedSection>
+              <div className='flex flex-wrap items-center gap-3 text-muted-foreground text-sm'>
+                <span className='inline-flex items-center gap-2'>
+                  <Clock3 className='size-4' />
+                  {project.duration}
+                </span>
 
-          <ProjectList title='Features' items={project.features} />
+                <span aria-hidden='true'>·</span>
 
-          <ProjectList title='Challenges' items={project.challenges} />
+                <span>{project.role}</span>
+              </div>
 
-          <ProjectList title='Future Plans' items={project.futurePlans} />
+              {/* External links */}
+              <div className='flex flex-wrap gap-2 pt-1'>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className={buttonVariants({
+                      size: "sm",
+                      className: "gap-2",
+                    })}
+                  >
+                    Live preview
+                    <ExternalLink className='size-4' />
+                  </a>
+                )}
 
-          <div className='gap-3 grid sm:grid-cols-2'>
-            {project.liveUrl && (
-              <Button variant={"secondary"} size={"sm"}>
-                <Link
-                  href={project.liveUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <Globe className='mr-2 w-4 h-4' />
-                  Live Demo
-                </Link>
-              </Button>
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className={buttonVariants({
+                      size: "sm",
+                      variant: "outline",
+                      className: "gap-2",
+                    })}
+                  >
+                    <FaGithub className='size-4' />
+                    Source code
+                  </a>
+                )}
+              </div>
+            </motion.div>
+
+            {/* About */}
+            <ProjectDetailSection
+              title='About the project'
+              description='The idea, purpose, and problem this project addresses.'
+              icon={<Target className='size-5' />}
+            >
+              <p className='text-muted-foreground text-sm sm:text-base leading-8'>
+                {project.description}
+              </p>
+            </ProjectDetailSection>
+
+            {/* Gallery */}
+            {project.gallery.length > 0 && (
+              <ProjectDetailSection
+                title='Project gallery'
+                description='A closer look at the interface and experience.'
+                icon={<Layers3 className='size-5' />}
+              >
+                <div className='gap-4 grid sm:grid-cols-2'>
+                  {project.gallery.map((image, index) => (
+                    <motion.div
+                      key={image}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.06,
+                      }}
+                      className='group relative bg-muted border border-border rounded-xl aspect-video overflow-hidden'
+                    >
+                      <Image
+                        src={image}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        fill
+                        sizes='(max-width: 640px) 100vw, 50vw'
+                        className='object-cover group-hover:scale-105 transition-transform duration-500'
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              </ProjectDetailSection>
             )}
 
-            {project.githubUrl && (
-              <Button variant='outline' size={"sm"}>
-                <Link
-                  href={project.githubUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <FaGithub className='mr-2 w-4 h-4' />
-                  GitHub
-                </Link>
-              </Button>
+            {/* Technologies */}
+            <ProjectDetailSection
+              title='Technologies'
+              description='Tools and technologies used to build this project.'
+              icon={<Layers3 className='size-5' />}
+            >
+              <div className='flex flex-wrap gap-2'>
+                {project.technologies.map((technology) => (
+                  <Badge
+                    key={technology}
+                    variant='secondary'
+                    className='px-3 py-1.5 rounded-md font-normal text-sm'
+                  >
+                    {technology}
+                  </Badge>
+                ))}
+              </div>
+            </ProjectDetailSection>
+
+            {/* Features */}
+            {project.features.length > 0 && (
+              <ProjectList
+                title='Key features'
+                description='The main capabilities and functionality.'
+                icon={<Check className='size-5' />}
+                items={project.features}
+              />
+            )}
+
+            {/* Challenges */}
+            {project.challenges.length > 0 && (
+              <ProjectList
+                title='Challenges & solutions'
+                description='Some of the technical challenges addressed during development.'
+                icon={<Lightbulb className='size-5' />}
+                items={project.challenges}
+              />
+            )}
+
+            {/* Future plans */}
+            {project.futurePlans.length > 0 && (
+              <ProjectList
+                title='Future improvements'
+                description='Ideas and improvements planned for future iterations.'
+                icon={<Sparkles className='size-5' />}
+                items={project.futurePlans}
+              />
             )}
           </div>
         </div>
@@ -188,50 +230,61 @@ export default function ProjectDialog({
   );
 }
 
-function AnimatedSection({
-  title,
-  children,
-}: {
+interface ProjectDetailSectionProps {
   title: string;
+  description?: string;
+  icon: ReactNode;
   children: ReactNode;
-}) {
-  return (
-    <motion.section
-      initial={{
-        opacity: 0,
-        y: 25,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
-      transition={{
-        duration: 0.4,
-      }}
-    >
-      <h3 className='flex items-center gap-2 mb-4 font-semibold text-xl'>
-        <Sparkles className='w-5 h-5 text-purple-400' />
+}
 
-        {title}
-      </h3>
+function ProjectDetailSection({
+  title,
+  description,
+  icon,
+  children,
+}: ProjectDetailSectionProps) {
+  return (
+    <section className='space-y-4'>
+      <div className='flex items-start gap-3'>
+        <div className='flex justify-center items-center bg-brand/10 rounded-lg size-9 text-brand shrink-0'>
+          {icon}
+        </div>
+
+        <div className='space-y-1'>
+          <h3 className='font-semibold tracking-tight'>{title}</h3>
+
+          {description && (
+            <p className='text-muted-foreground text-sm'>{description}</p>
+          )}
+        </div>
+      </div>
 
       {children}
-    </motion.section>
+    </section>
   );
 }
 
-function ProjectList({ title, items }: { title: string; items: string[] }) {
-  return (
-    <AnimatedSection title={title}>
-      <ul className='space-y-3'>
-        {items.map((item) => (
-          <li key={item} className='flex gap-3 text-muted-foreground'>
-            <span className='bg-purple-500 mt-2 rounded-full w-2 h-2' />
+interface ProjectListProps {
+  title: string;
+  description: string;
+  icon: ReactNode;
+  items: string[];
+}
 
-            {item}
+function ProjectList({ title, description, icon, items }: ProjectListProps) {
+  return (
+    <ProjectDetailSection title={title} description={description} icon={icon}>
+      <ul className='gap-3 grid sm:grid-cols-2'>
+        {items.map((item) => (
+          <li
+            key={item}
+            className='flex items-start gap-3 bg-muted/30 p-4 border border-border/70 rounded-xl text-muted-foreground text-sm leading-6'
+          >
+            <ListChecks className='mt-0.5 size-4 text-brand shrink-0' />
+            <span>{item}</span>
           </li>
         ))}
       </ul>
-    </AnimatedSection>
+    </ProjectDetailSection>
   );
 }

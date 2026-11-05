@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
+import "lenis/dist/lenis.css";
 
 import { defaultMetadata, personJsonLd, websiteJsonLd } from "@/config/seo";
 import { siteConfig } from "@/config/site";

@@ -1,33 +1,47 @@
-import { CheckCircle2, Clock3 } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { CheckCircle2, Clock3 } from "lucide-react";
 
-export const getBadge = (status: string) => {
-  switch (status) {
-    case "completed":
-      return (
-        <Badge variant="secondary">
-          <CheckCircle2 className="mr-1 h-3.5 w-3.5 text-emerald-500" />
-          Completed
-        </Badge>
-      )
+import { Badge } from "@/components/ui/badge";
 
-    case "certified":
-      return (
-        <Badge variant={"secondary"}>
-          <CheckCircle2 className="mr-1 h-3.5 w-3.5 text-emerald-500" />
-          Certified
-        </Badge>
-      )
+export type EducationStatus = "completed" | "certified" | "in-progress";
 
-    case "in-progress":
-      return (
-        <Badge className="bg-yellow-700" variant={"secondary"}>
-          <Clock3 className="mr-1 h-3.5 w-3.5" />
-          In Progress
-        </Badge>
-      )
-
-    default:
-      return null
+const statusConfig = {
+  completed: {
+    label: "Completed",
+    icon: CheckCircle2,
+    className: "border-brand-nature/20 bg-brand-nature/10 text-brand-nature",
+  },
+  certified: {
+    label: "Certified",
+    icon: CheckCircle2,
+    className: "border-brand/20 bg-brand/10 text-brand",
+  },
+  "in-progress": {
+    label: "In Progress",
+    icon: Clock3,
+    className:
+      "border-amber-500/20 bg-amber-500/10 text-amber-700 dark:text-amber-400",
+  },
+} satisfies Record<
+  EducationStatus,
+  {
+    label: string;
+    icon: typeof CheckCircle2;
+    className: string;
   }
+>;
+
+export function getBadge(status: EducationStatus) {
+  const config = statusConfig[status];
+
+  const Icon = config.icon;
+
+  return (
+    <Badge
+      variant='outline'
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-medium ${config.className}`}
+    >
+      <Icon aria-hidden='true' className='size-3.5' />
+      {config.label}
+    </Badge>
+  );
 }

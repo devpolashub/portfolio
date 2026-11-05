@@ -20,7 +20,7 @@ export default function Page() {
                 <div className='bg-muted/50 rounded-xl aspect-video' />
                 <div className='bg-muted/50 rounded-xl aspect-video' />
               </div>
-              <div className='flex-1 bg-muted/50 rounded-xl min-h-[100vh] md:min-h-min' />
+              <div className='flex-1 bg-muted/50 rounded-xl min-h-screen md:min-h-min' />
             </div>
           </SidebarInset>
         </div>

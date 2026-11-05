@@ -317,3 +317,74 @@ html {
     transform: none;
   }
 }
+
+@keyframes palash-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes palash-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-portrait-inner {
+  animation: palash-float 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait-inner {
+    animation: none !important;
+  }
+}
+
+@keyframes palash-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.hero-portrait {
+  animation: palash-float 7s ease-in-out infinite;
+}
+
+.hero-portrait .glass {
+  animation: palash-float 6s ease-in-out infinite;
+}
+
+.hero-portrait .glass:last-of-type {
+  animation-delay: -3s;
+}
+
+.brand-glow-bg {
+  background-image:
+    radial-gradient(ellipse at 12% 10%, var(--brand-glow), transparent 42%),
+    radial-gradient(
+      ellipse at 90% 45%,
+      var(--brand-glow-secondary),
+      transparent 38%
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait,
+  .hero-portrait .glass {
+    animation: none !important;
+  }
+}

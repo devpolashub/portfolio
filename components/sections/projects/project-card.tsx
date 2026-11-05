@@ -1,21 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { motion, Variants } from "motion/react";
-import { Globe, Clock3 } from "lucide-react";
+import { motion, type Variants } from "motion/react";
+import { ArrowUpRight, Clock3, ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Project } from "./data/project-data";
-import { FaGithub } from "react-icons/fa";
+import { buttonVariants } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+
+import type { Project } from "./data/project-data";
 import ProjectDialog from "./project-dialog";
 import { getStatusBadge } from "./project-badge";
 
@@ -27,15 +21,15 @@ interface ProjectCardProps {
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 40,
+    y: 24,
   },
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: index * 0.12,
-      duration: 0.45,
-      ease: [0.25, 0.1, 0.25, 1], // cubic-bezier
+      duration: 0.55,
+      delay: index * 0.1,
+      ease: [0.22, 1, 0.36, 1],
     },
   }),
 };
@@ -47,109 +41,139 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       variants={cardVariants}
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.15 }}
+      className='h-full'
     >
-      <Card className='group flex flex-col hover:shadow-2xl pt-0 h-full overflow-hidden transition-all duration-300 glass-morphism'>
-        <div className='-z-10 absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,10,60,1)_0%,rgba(10,5,20,1)_100%)] to-muted' />
-        {/* Image */}
-
-        <div className='relative aspect-video overflow-hidden'>
+      <Card className='group relative flex flex-col bg-card shadow-sm hover:shadow-brand/5 hover:shadow-xl p-0 border-border/70 hover:border-brand/40 rounded-2xl h-full overflow-hidden transition-all hover:-translate-y-1 duration-500'>
+        {/* Project thumbnail */}
+        <div className='relative bg-muted aspect-video overflow-hidden'>
           <Image
             src={project.thumbnail}
-            alt={project.title}
+            alt={`${project.title} preview`}
             fill
             priority={index === 0}
-            className='object-cover group-hover:scale-105 transition duration-500'
+            sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+            className='object-cover group-hover:scale-105 transition-transform duration-700 ease-out'
           />
 
-          <div className='absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent' />
+          <div className='absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/10 opacity-80 group-hover:opacity-100 transition-opacity duration-500' />
 
-          <div className='top-4 left-4 absolute flex gap-2'>
-            <Badge>{project.category}</Badge>
+          {/* Category and status */}
+          <div className='top-4 absolute inset-x-4 flex flex-wrap justify-between items-center gap-2'>
+            <Badge className='bg-black/45 hover:bg-black/55 shadow-sm backdrop-blur-md border-white/20 text-white'>
+              {project.category}
+            </Badge>
 
             {getStatusBadge(project.status)}
           </div>
+
+          {/* Brand hover accent */}
+          <div className='bottom-0 left-0 absolute bg-brand w-0 group-hover:w-full h-1 transition-all duration-500' />
         </div>
 
-        {/* Header */}
+        {/* Project content */}
+        <div className='flex flex-col flex-1 p-5 sm:p-6'>
+          {/* Header */}
+          <div className='flex justify-between items-start gap-3 mb-3'>
+            <div className='min-w-0'>
+              <h3 className='font-semibold group-hover:text-brand text-xl sm:text-2xl tracking-tight transition-colors duration-300'>
+                {project.title}
+              </h3>
 
-        <CardHeader>
-          <CardTitle className='text-xl line-clamp-1'>
-            {project.title}
-          </CardTitle>
+              <p className='mt-1 text-muted-foreground text-sm'>
+                {project.subtitle}
+              </p>
+            </div>
 
-          <p className='text-muted-foreground text-sm'>{project.subtitle}</p>
-        </CardHeader>
+            <ArrowUpRight className='mt-1 size-5 text-muted-foreground group-hover:text-brand transition-all group-hover:-translate-y-1 group-hover:translate-x-1 duration-300 shrink-0' />
+          </div>
 
-        {/* Content */}
-
-        <CardContent className='flex-1'>
-          <p className='mb-4 text-muted-foreground text-sm line-clamp-3'>
+          {/* Description */}
+          <p className='mb-5 text-muted-foreground text-sm line-clamp-3 leading-7'>
             {project.description}
           </p>
 
-          {/* Tech Stack */}
-
-          <div className='flex flex-wrap gap-2 mb-4'>
-            {project.technologies.slice(0, 5).map((tech) => (
+          {/* Technologies */}
+          <div className='flex flex-wrap gap-1.5 mb-5'>
+            {project.technologies.slice(0, 4).map((technology) => (
               <Badge
-                key={tech}
-                className='border-purple-300 dark:border-purple-900 text-xs'
+                key={technology}
                 variant='secondary'
+                className='px-2.5 py-1 rounded-md font-normal text-xs'
               >
-                {tech}
+                {technology}
               </Badge>
             ))}
 
-            {project.technologies.length > 5 && (
+            {project.technologies.length > 4 && (
               <Badge
-                className='border-purple-300 dark:border-purple-900 text-xs'
-                variant='secondary'
+                variant='outline'
+                className='px-2.5 py-1 rounded-md font-normal text-xs'
               >
-                +{project.technologies.length - 5}
+                +{project.technologies.length - 4}
               </Badge>
             )}
           </div>
 
-          {/* Meta */}
-
-          <div className='flex justify-between items-center text-muted-foreground text-sm'>
-            <div className='flex items-center gap-2'>
-              <Clock3 className='w-4 h-4' />
-              {project.duration}
+          {/* Project metadata */}
+          <div className='flex flex-wrap justify-between items-center gap-3 mt-auto pt-4 border-border/70 border-t'>
+            <div className='flex items-center gap-2 text-muted-foreground text-xs'>
+              <Clock3 className='size-3.5' />
+              <span>{project.duration}</span>
             </div>
 
-            <Badge variant='outline'>{project.role}</Badge>
+            <span className='font-medium text-muted-foreground text-xs'>
+              {project.role}
+            </span>
           </div>
-        </CardContent>
 
-        {/* Footer */}
+          {/* Actions */}
+          <div className='flex items-center gap-2 mt-5'>
+            <ProjectDialog project={project}>
+              <button
+                type='button'
+                className='inline-flex flex-1 justify-center items-center gap-2 bg-primary hover:bg-primary/90 shadow-xs px-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-w-0 h-9 font-medium text-primary-foreground text-sm transition-colors'
+              >
+                Explore project
+                <ArrowUpRight className='size-4' />
+              </button>
+            </ProjectDialog>
 
-        <CardFooter className='gap-2 grid grid-cols-3'>
-          <ProjectDialog project={project}>
-            <Button
-              variant='outline'
-              size='sm'
-              className='hover:cursor-pointer'
-            >
-              Details
-            </Button>
-          </ProjectDialog>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className={buttonVariants({
+                  size: "icon",
+                  variant: "outline",
+                  className: "shrink-0",
+                })}
+                aria-label={`Visit ${project.title} live demo`}
+                title='Live demo'
+              >
+                <ExternalLink className='size-4' />
+              </a>
+            )}
 
-          <Button variant={"secondary"} size='sm' className='group/button'>
-            <Link href={project.liveUrl} target='_blank'>
-              <Globe className='mr-2 w-4 h-4' />
-              Live
-            </Link>
-          </Button>
-
-          <Button variant='outline' size='sm'>
-            <Link href={project.githubUrl} target='_blank'>
-              <FaGithub className='mr-2 w-4 h-4' />
-              GitHub
-            </Link>
-          </Button>
-        </CardFooter>
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className={buttonVariants({
+                  size: "icon",
+                  variant: "outline",
+                  className: "shrink-0",
+                })}
+                aria-label={`View ${project.title} source code on GitHub`}
+                title='GitHub repository'
+              >
+                <FaGithub className='size-4' />
+              </a>
+            )}
+          </div>
+        </div>
       </Card>
     </motion.div>
   );
