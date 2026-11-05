@@ -3,9 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
+import "lenis/dist/lenis.css";
 
 import { defaultMetadata, personJsonLd, websiteJsonLd } from "@/config/seo";
 import { siteConfig } from "@/config/site";
+import Provider from "@/provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +39,7 @@ export const viewport: Viewport = {
   ],
 };
 
-function jsonLdScript(data: object) {
+function jsonLdScript(data: object): { __html: string } {
   return {
     __html: JSON.stringify(data).replace(/</g, "\\u003c"),
   };
@@ -61,8 +63,7 @@ export default function RootLayout({
           type='application/ld+json'
           dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd)}
         />
-
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

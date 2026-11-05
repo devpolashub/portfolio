@@ -48,3 +48,5 @@ dist/
 .cursor
 .devin
 prisma-8.md
+.vinext/
+.cloudflare/

@@ -6,10 +6,7 @@ const defaultTitle = `${siteConfig.title} | ${siteConfig.name}`;
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 
-  title: {
-    default: defaultTitle,
-    template: "%s | POLAS",
-  },
+  title: { default: defaultTitle, template: `%s | ${siteConfig.name}` },
 
   description: siteConfig.description,
   applicationName: siteConfig.brandName,
