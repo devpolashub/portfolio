@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { getBadge } from "./education-badge";
+import GetBadge, { EducationStatus } from "./education-badge";
 import { academicData, courseData } from "./data/education-data";
 
 const revealVariants: Variants = {
@@ -115,7 +115,7 @@ export default function EducationSection() {
                       {academicData.title}
                     </h3>
 
-                    {getBadge(academicData.status)}
+                    <GetBadge status={academicData.status as EducationStatus} />
                   </div>
 
                   <p className='font-medium text-muted-foreground'>
@@ -167,7 +167,7 @@ export default function EducationSection() {
                             <CourseIcon className='size-6' />
                           </div>
 
-                          {getBadge(course.status)}
+                          <GetBadge status={course.status as EducationStatus} />
                         </div>
 
                         <div>
