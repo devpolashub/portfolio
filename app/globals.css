@@ -74,6 +74,18 @@ html {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  --text-display: clamp(3rem, 7vw, 5.75rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.065em;
+
+  --text-page-title: clamp(2.5rem, 5vw, 4.5rem);
+  --text-page-title--line-height: 1.08;
+  --text-page-title--letter-spacing: -0.055em;
+
+  --text-section-title: clamp(1.875rem, 4vw, 3.25rem);
+  --text-section-title--line-height: 1.12;
+  --text-section-title--letter-spacing: -0.045em;
 }
 
 :root {
@@ -222,11 +234,54 @@ html {
   html {
     @apply font-sans;
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background min-h-screen text-foreground;
+    font-family: var(--font-geist-sans), sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-feature-settings:
+      "ss01" on,
+      "cv11" on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.055em;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
   }
 
   ::selection {
@@ -240,9 +295,9 @@ html {
 /* Optional ambient background; apply to a wrapper */
 .brand-glow-bg {
   background-image:
-    radial-gradient(ellipse at 12% 0%, var(--brand-glow), transparent 42%),
+    radial-gradient(ellipse at 12% 10%, var(--brand-glow), transparent 42%),
     radial-gradient(
-      ellipse at 90% 35%,
+      ellipse at 90% 45%,
       var(--brand-glow-secondary),
       transparent 38%
     );
@@ -372,19 +427,71 @@ html {
   animation-delay: -3s;
 }
 
-.brand-glow-bg {
-  background-image:
-    radial-gradient(ellipse at 12% 10%, var(--brand-glow), transparent 42%),
-    radial-gradient(
-      ellipse at 90% 45%,
-      var(--brand-glow-secondary),
-      transparent 38%
-    );
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero-portrait,
   .hero-portrait .glass {
     animation: none !important;
   }
+}
+
+/* LAYOUT UTILITIES */
+
+@utility page-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @variant sm {
+    padding-inline: 1.5rem;
+  }
+
+  @variant lg {
+    padding-inline: 2rem;
+  }
+}
+
+@utility section-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @variant sm {
+    padding-inline: 1.5rem;
+  }
+
+  @variant lg {
+    padding-inline: 2rem;
+  }
+}
+
+@utility reading-container {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @variant sm {
+    padding-inline: 1.5rem;
+  }
+}
+
+@utility section-space {
+  padding-block: 5rem;
+
+  @variant sm {
+    padding-block: 6rem;
+  }
+
+  @variant lg {
+    padding-block: 7rem;
+  }
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(120deg, var(--brand), var(--brand-accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }

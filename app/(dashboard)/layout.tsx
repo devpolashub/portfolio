@@ -5,5 +5,9 @@ export default function DashboardLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return <section>{children}</section>;
+  return (
+    <main className='flex flex-col bg-background w-full min-h-screen'>
+      {children}
+    </main>
+  );
 }

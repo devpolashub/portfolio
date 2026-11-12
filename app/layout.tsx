@@ -54,7 +54,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body>
+      <body className='min-h-full'>
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={jsonLdScript(personJsonLd)}

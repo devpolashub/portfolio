@@ -7,16 +7,12 @@ export default function MainLayout({
   children: ReactNode;
 }>) {
   return (
-    <main className='flex flex-col bg-background w-full min-h-screen'>
+    <div className='flex flex-col bg-background w-full min-h-dvh'>
       <RouteNavbar />
-      <div
-        id='main-content'
-        className={`w-11/12 lg:w-10/12 mx-auto flex-1 py-6`}
-      >
+
+      <div id='main-content' className='flex-1 w-full'>
         {children}
       </div>
-
-      <footer>{/* <Footer /> */}</footer>
-    </main>
+    </div>
   );
 }

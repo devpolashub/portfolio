@@ -1,9 +1,12 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
-import { ArrowDownRight, BookOpen, Code2, Compass, Sprout } from "lucide-react";
+import { motion } from "motion/react";
+import { BookOpen, Code2, Compass, Sprout } from "lucide-react";
 
+import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import AboutCard, { type AboutCardContent } from "./about-card";
+import { Section } from "@/components/shared/section";
+import { SectionHeading } from "@/components/shared/section-heading";
 
 const aboutContent: AboutCardContent[] = [
   {
@@ -47,108 +50,42 @@ const aboutContent: AboutCardContent[] = [
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const headingVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.65,
-      ease: "easeOut",
-    },
-  },
-};
-
 export default function About() {
   return (
-    <section
-      id='about'
-      aria-labelledby='about-heading'
-      className='isolate relative py-20 sm:py-28 lg:py-32 overflow-hidden'
-    >
-      {/* Brand atmosphere */}
-      <div
-        aria-hidden='true'
-        className='-z-10 absolute inset-0 overflow-hidden pointer-events-none'
-      >
-        <div className='top-20 -left-40 absolute bg-brand/5 blur-[120px] rounded-full size-[380px]' />
-
-        <div className='-right-40 bottom-0 absolute bg-brand-nature/5 blur-[120px] rounded-full size-[350px]' />
-      </div>
-
-      <div className='mx-auto px-4 sm:px-6 lg:px-8 container'>
-        {/* Section introduction */}
-        <motion.div
-          variants={headingVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.3 }}
-          className='mx-auto mb-12 sm:mb-16 max-w-3xl text-center'
-        >
-          <div className='inline-flex items-center gap-2 bg-brand/5 mb-5 px-3 py-1.5 border border-brand/20 rounded-full font-medium text-brand text-xs'>
-            <span className='bg-brand rounded-full size-1.5' />A little about me
-          </div>
-
-          <h2
-            id='about-heading'
-            className='font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight'
-          >
+    <Section id='about' glow='left'>
+      <SectionHeading
+        id='about'
+        eyebrow='A little about me'
+        title={
+          <>
             The person behind <span className='text-brand'>the projects.</span>
-          </h2>
+          </>
+        }
+        description="I'm a Full-Stack Developer who enjoys turning ideas into scalable, user-friendly web applications. Great software combines thoughtful design, clean engineering, and meaningful user experiences."
+      />
 
-          <p className='mx-auto mt-6 max-w-2xl text-muted-foreground text-sm sm:text-base leading-8'>
-            I'm a Full-Stack Developer who enjoys transforming ideas into
-            scalable, user-friendly, and reliable web applications. I believe
-            great software combines thoughtful design, clean engineering, and
-            meaningful user experiences.
-          </p>
-        </motion.div>
+      <motion.div
+        variants={stagger(0.12)}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true, amount: 0.1 }}
+        className='gap-4 lg:gap-5 grid sm:grid-cols-2'
+      >
+        {aboutContent.map((content) => (
+          <AboutCard key={content.id} content={content} />
+        ))}
+      </motion.div>
 
-        {/* About cards */}
-        <motion.div
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.1 }}
-          className='gap-4 lg:gap-5 grid sm:grid-cols-2'
-        >
-          {aboutContent.map((content) => (
-            <AboutCard key={content.id} content={content} />
-          ))}
-        </motion.div>
-
-        {/* Closing statement */}
-        <motion.div
-          variants={headingVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.3 }}
-          className='flex flex-col items-center gap-3 mt-12 sm:mt-16 text-center'
-        >
-          <div className='flex items-center gap-2 font-medium text-brand text-sm'>
-            <span className='bg-brand/40 w-8 h-px' />
-            <span>Thoughtful engineering. Meaningful products.</span>
-            <span className='bg-brand/40 w-8 h-px' />
-          </div>
-
-          <p className='max-w-lg text-muted-foreground text-sm leading-7'>
-            Always exploring, always improving, and always looking for
-            meaningful problems to solve.
-          </p>
-        </motion.div>
-      </div>
-    </section>
+      <motion.p
+        variants={fadeUp}
+        initial='hidden'
+        whileInView='visible'
+        viewport={viewportOnce}
+        className='mx-auto mt-12 sm:mt-16 max-w-lg text-muted-foreground text-sm text-center leading-7'
+      >
+        Always exploring, always improving, and always looking for meaningful
+        problems to solve.
+      </motion.p>
+    </Section>
   );
 }

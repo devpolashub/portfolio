@@ -4,9 +4,9 @@
   "private": true,
   "author": "Polas Chandra Barmon",
   "scripts": {
-    "next:dev": "next dev",
-    "next:build": "next build",
-    "next:start": "next start",
+    "dev:next": "next dev",
+    "build:next": "next build",
+    "start:next": "next start",
     "lint": "eslint",
     "cf-typegen": "cf workers types",
     "dev:vinext": "vite dev --port 3001",
