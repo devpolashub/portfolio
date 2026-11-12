@@ -8,6 +8,7 @@ import {
   prismaCloud,
   prismaState,
 } from "@prisma/composer-prisma-cloud/control";
+import pgvector from "@prisma/orm-extension-pgvector/control";
 
 export default definePrismaConfig({
   skills: {
@@ -15,6 +16,7 @@ export default definePrismaConfig({
   },
   orm: ormConfig({
     contract: "./prisma/contract.prisma",
+    extensions: [pgvector],
     db: {
       connection: process.env.DATABASE_URL!,
     },
