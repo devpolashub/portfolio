@@ -20,6 +20,16 @@ const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 let teardown: (() => void) | null = null;
 
+/** "/#about" or "#about" -> "about". Returns null for non-section hrefs or bad encoding. */
+export function getSectionId(href: string): string | null {
+  if (!HASH_PREFIX.test(href)) return null;
+  try {
+    return decodeURIComponent(href.replace(HASH_PREFIX, "")) || null;
+  } catch {
+    return null;
+  }
+}
+
 function release() {
   teardown?.();
   teardown = null;
@@ -36,17 +46,11 @@ function getScrollPaddingTop() {
 }
 
 export default function scrollToSection(href: string): boolean {
-  if (typeof window === "undefined" || !HASH_PREFIX.test(href)) return false;
+  if (typeof window === "undefined") return false;
 
-  let id: string;
-  try {
-    id = decodeURIComponent(href.replace(HASH_PREFIX, ""));
-  } catch {
-    return false;
-  }
-
+  const id = getSectionId(href);
   const target = id ? document.getElementById(id) : null;
-  if (!target) return false;
+  if (!id || !target) return false;
 
   release(); // drop any previous scroll's listeners/timers
 

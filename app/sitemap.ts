@@ -2,23 +2,36 @@ import type { MetadataRoute } from "next";
 
 import { projects } from "@/data/projects";
 import { siteConfig } from "@/config/site";
+import { routeMetadata } from "@/config/metadata";
 
 const siteUrl = new URL(siteConfig.url);
 
-const staticRoutes = [
-  { path: "/", priority: 1, changeFrequency: "weekly" },
-  { path: "/projects", priority: 0.9, changeFrequency: "weekly" },
-  { path: "/about", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/skills", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/experience", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/contact", priority: 0.6, changeFrequency: "monthly" },
-] as const;
+type RouteKey = keyof typeof routeMetadata;
+
+// Routes are derived from routeMetadata, so the sitemap can never drift from real pages.
+const routeSettings: Record<
+  RouteKey,
+  {
+    priority: number;
+    changeFrequency: NonNullable<
+      MetadataRoute.Sitemap[number]["changeFrequency"]
+    >;
+  }
+> = {
+  home: { priority: 1, changeFrequency: "weekly" },
+  projects: { priority: 0.9, changeFrequency: "weekly" },
+  about: { priority: 0.7, changeFrequency: "monthly" },
+  skills: { priority: 0.7, changeFrequency: "monthly" },
+  education: { priority: 0.6, changeFrequency: "monthly" },
+  contact: { priority: 0.6, changeFrequency: "monthly" },
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: new URL(route.path, siteUrl).toString(),
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
+  const pages: MetadataRoute.Sitemap = (
+    Object.keys(routeMetadata) as RouteKey[]
+  ).map((key) => ({
+    url: new URL(routeMetadata[key].path, siteUrl).toString(),
+    ...routeSettings[key],
   }));
 
   const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({

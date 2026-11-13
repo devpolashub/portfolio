@@ -1,6 +1,7 @@
 import "dotenv/config";
 
 import postgres from "@prisma/orm-postgres/runtime";
+import pgvector from "@prisma/orm-extension-pgvector/runtime";
 import { contractFromJson } from "@prisma/orm-postgres/static";
 
 import "temporal-polyfill/global";
@@ -22,5 +23,9 @@ function loadComposerDatabase() {
 export const db =
   loadComposerDatabase() ??
   (process.env.DATABASE_URL
-    ? postgres({ contract, url: process.env.DATABASE_URL })
-    : postgres({ contract }));
+    ? postgres({
+        contract,
+        url: process.env.DATABASE_URL,
+        extensions: [pgvector],
+      })
+    : postgres({ contract, extensions: [pgvector] }));

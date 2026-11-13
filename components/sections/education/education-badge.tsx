@@ -30,7 +30,7 @@ const statusConfig = {
   }
 >;
 
-export function getBadge(status: EducationStatus) {
+export default function GetBadge({ status }: { status: EducationStatus }) {
   const config = statusConfig[status];
 
   const Icon = config.icon;

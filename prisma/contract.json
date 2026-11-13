@@ -4,127 +4,131 @@
   "target": "postgres",
   "profileHash": "3916f444a8a17ad749191acf9e08dad97d1a327b88c2f1d45d12f240296aa8b2",
   "roots": {
-    "Account": {
+    "accounts": {
       "model": "Account",
       "namespace": "public"
     },
-    "AuditLog": {
+    "audit_logs": {
       "model": "AuditLog",
       "namespace": "public"
     },
-    "BlogCategory": {
+    "blog_categories": {
       "model": "BlogCategory",
       "namespace": "public"
     },
-    "BlogPost": {
-      "model": "BlogPost",
-      "namespace": "public"
-    },
-    "BlogPostTag": {
+    "blog_post_tags": {
       "model": "BlogPostTag",
       "namespace": "public"
     },
-    "BlogTag": {
+    "blog_posts": {
+      "model": "BlogPost",
+      "namespace": "public"
+    },
+    "blog_tags": {
       "model": "BlogTag",
       "namespace": "public"
     },
-    "Certification": {
-      "model": "Certification",
-      "namespace": "public"
-    },
-    "CertificationSkill": {
+    "certification_skills": {
       "model": "CertificationSkill",
       "namespace": "public"
     },
-    "ContactMessage": {
+    "certifications": {
+      "model": "Certification",
+      "namespace": "public"
+    },
+    "contact_messages": {
       "model": "ContactMessage",
       "namespace": "public"
     },
-    "Education": {
+    "educations": {
       "model": "Education",
       "namespace": "public"
     },
-    "Experience": {
-      "model": "Experience",
-      "namespace": "public"
-    },
-    "ExperienceSkill": {
+    "experience_skills": {
       "model": "ExperienceSkill",
       "namespace": "public"
     },
-    "MediaAsset": {
+    "experiences": {
+      "model": "Experience",
+      "namespace": "public"
+    },
+    "media_assets": {
       "model": "MediaAsset",
       "namespace": "public"
     },
-    "NewsletterSubscriber": {
+    "newsletter_subscribers": {
       "model": "NewsletterSubscriber",
       "namespace": "public"
     },
-    "PageSeo": {
+    "page_sees": {
       "model": "PageSeo",
       "namespace": "public"
     },
-    "PageView": {
+    "page_views": {
       "model": "PageView",
       "namespace": "public"
     },
-    "Profile": {
-      "model": "Profile",
+    "portfolio_embeddings": {
+      "model": "PortfolioEmbedding",
       "namespace": "public"
     },
-    "ProfileItem": {
+    "profile_items": {
       "model": "ProfileItem",
       "namespace": "public"
     },
-    "ProfileLanguage": {
+    "profile_languages": {
       "model": "ProfileLanguage",
       "namespace": "public"
     },
-    "Project": {
-      "model": "Project",
+    "profiles": {
+      "model": "Profile",
       "namespace": "public"
     },
-    "ProjectImage": {
+    "project_images": {
       "model": "ProjectImage",
       "namespace": "public"
     },
-    "ProjectLink": {
+    "project_links": {
       "model": "ProjectLink",
       "namespace": "public"
     },
-    "ProjectSkill": {
+    "project_skills": {
       "model": "ProjectSkill",
       "namespace": "public"
     },
-    "ProjectView": {
+    "project_views": {
       "model": "ProjectView",
       "namespace": "public"
     },
-    "Session": {
+    "projects": {
+      "model": "Project",
+      "namespace": "public"
+    },
+    "sessions": {
       "model": "Session",
       "namespace": "public"
     },
-    "Skill": {
-      "model": "Skill",
-      "namespace": "public"
-    },
-    "SkillGroup": {
+    "skill_groups": {
       "model": "SkillGroup",
       "namespace": "public"
     },
-    "SocialLink": {
+    "skills": {
+      "model": "Skill",
+      "namespace": "public"
+    },
+    "social_links": {
       "model": "SocialLink",
       "namespace": "public"
     },
-    "Testimonial": {
+    "testimonials": {
       "model": "Testimonial",
       "namespace": "public"
     },
-    "User": {
+    "users": {
       "model": "User",
       "namespace": "public"
     },
-    "Verification": {
+    "verifications": {
       "model": "Verification",
       "namespace": "public"
     }
@@ -505,7 +509,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Account"
+              "table": "accounts"
             }
           },
           "AuditLog": {
@@ -603,7 +607,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "AuditLog"
+              "table": "audit_logs"
             }
           },
           "BlogCategory": {
@@ -710,7 +714,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "BlogCategory"
+              "table": "blog_categories"
             }
           },
           "BlogPost": {
@@ -931,7 +935,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "BlogPost"
+              "table": "blog_posts"
             }
           },
           "BlogPostTag": {
@@ -995,7 +999,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "BlogPostTag"
+              "table": "blog_post_tags"
             }
           },
           "BlogTag": {
@@ -1072,7 +1076,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "BlogTag"
+              "table": "blog_tags"
             }
           },
           "Certification": {
@@ -1245,7 +1249,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Certification"
+              "table": "certifications"
             }
           },
           "CertificationSkill": {
@@ -1309,7 +1313,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "CertificationSkill"
+              "table": "certification_skills"
             }
           },
           "ContactMessage": {
@@ -1426,7 +1430,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ContactMessage"
+              "table": "contact_messages"
             }
           },
           "Education": {
@@ -1620,7 +1624,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Education"
+              "table": "educations"
             }
           },
           "Experience": {
@@ -1845,7 +1849,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Experience"
+              "table": "experiences"
             }
           },
           "ExperienceSkill": {
@@ -1909,7 +1913,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ExperienceSkill"
+              "table": "experience_skills"
             }
           },
           "MediaAsset": {
@@ -2237,7 +2241,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "MediaAsset"
+              "table": "media_assets"
             }
           },
           "NewsletterSubscriber": {
@@ -2364,7 +2368,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "NewsletterSubscriber"
+              "table": "newsletter_subscribers"
             }
           },
           "PageSeo": {
@@ -2512,7 +2516,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "PageSeo"
+              "table": "page_sees"
             }
           },
           "PageView": {
@@ -2583,7 +2587,61 @@
                 }
               },
               "namespaceId": "public",
-              "table": "PageView"
+              "table": "page_views"
+            }
+          },
+          "PortfolioEmbedding": {
+            "fields": {
+              "content": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "embedding": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/vector@1",
+                  "kind": "scalar",
+                  "typeParams": {
+                    "length": 1536
+                  }
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "metadata": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/json@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {},
+            "storage": {
+              "fields": {
+                "content": {
+                  "column": "content"
+                },
+                "embedding": {
+                  "column": "embedding"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "metadata": {
+                  "column": "metadata"
+                }
+              },
+              "namespaceId": "public",
+              "table": "portfolio_embeddings"
             }
           },
           "Profile": {
@@ -2862,7 +2920,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Profile"
+              "table": "profiles"
             }
           },
           "ProfileItem": {
@@ -2986,7 +3044,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ProfileItem"
+              "table": "profile_items"
             }
           },
           "ProfileLanguage": {
@@ -3104,7 +3162,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ProfileLanguage"
+              "table": "profile_languages"
             }
           },
           "Project": {
@@ -3403,7 +3461,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Project"
+              "table": "projects"
             }
           },
           "ProjectImage": {
@@ -3527,7 +3585,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ProjectImage"
+              "table": "project_images"
             }
           },
           "ProjectLink": {
@@ -3641,7 +3699,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ProjectLink"
+              "table": "project_links"
             }
           },
           "ProjectSkill": {
@@ -3715,7 +3773,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ProjectSkill"
+              "table": "project_skills"
             }
           },
           "ProjectView": {
@@ -3793,7 +3851,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "ProjectView"
+              "table": "project_views"
             }
           },
           "Session": {
@@ -3901,7 +3959,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Session"
+              "table": "sessions"
             }
           },
           "Skill": {
@@ -4104,7 +4162,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Skill"
+              "table": "skills"
             }
           },
           "SkillGroup": {
@@ -4211,7 +4269,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "SkillGroup"
+              "table": "skill_groups"
             }
           },
           "SocialLink": {
@@ -4349,7 +4407,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "SocialLink"
+              "table": "social_links"
             }
           },
           "Testimonial": {
@@ -4503,7 +4561,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Testimonial"
+              "table": "testimonials"
             }
           },
           "User": {
@@ -4655,7 +4713,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "User"
+              "table": "users"
             }
           },
           "Verification": {
@@ -4726,7 +4784,7 @@
                 }
               },
               "namespaceId": "public",
-              "table": "Verification"
+              "table": "verifications"
             }
           }
         }
@@ -4738,7 +4796,7 @@
       "public": {
         "entries": {
           "table": {
-            "Account": {
+            "accounts": {
               "columns": {
                 "accessToken": {
                   "codecId": "pg/text@1",
@@ -4817,7 +4875,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Account_userId_idx_a489d58a"
+                    "name": "accounts_userId_idx_a489d58a"
                   },
                   "onDelete": "cascade",
                   "source": {
@@ -4825,14 +4883,14 @@
                       "userId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Account"
+                    "tableName": "accounts"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "User"
+                    "tableName": "users"
                   }
                 }
               ],
@@ -4841,8 +4899,8 @@
                   "columns": [
                     "userId"
                   ],
-                  "name": "Account_userId_idx_a489d58a",
-                  "prefix": "Account_userId_idx",
+                  "name": "accounts_userId_idx_a489d58a",
+                  "prefix": "accounts_userId_idx",
                   "unique": false
                 }
               ],
@@ -4860,7 +4918,7 @@
                 }
               ]
             },
-            "AuditLog": {
+            "audit_logs": {
               "columns": {
                 "action": {
                   "codecId": "pg/text@1",
@@ -4905,7 +4963,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "AuditLog_userId_idx_a489d58a"
+                    "name": "audit_logs_userId_idx_a489d58a"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -4913,14 +4971,14 @@
                       "userId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "AuditLog"
+                    "tableName": "audit_logs"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "User"
+                    "tableName": "users"
                   }
                 }
               ],
@@ -4930,8 +4988,8 @@
                     "action",
                     "createdAt"
                   ],
-                  "name": "AuditLog_action_createdAt_idx_a6d20b4b",
-                  "prefix": "AuditLog_action_createdAt_idx",
+                  "name": "audit_logs_action_createdAt_idx_a6d20b4b",
+                  "prefix": "audit_logs_action_createdAt_idx",
                   "unique": false
                 },
                 {
@@ -4940,8 +4998,8 @@
                     "entityId",
                     "createdAt"
                   ],
-                  "name": "AuditLog_entityType_entityId_createdAt_idx_e9eb579f",
-                  "prefix": "AuditLog_entityType_entityId_createdAt_idx",
+                  "name": "audit_logs_entityType_entityId_createdAt_idx_e9eb579f",
+                  "prefix": "audit_logs_entityType_entityId_createdAt_idx",
                   "unique": false
                 },
                 {
@@ -4949,16 +5007,16 @@
                     "userId",
                     "createdAt"
                   ],
-                  "name": "AuditLog_userId_createdAt_idx_f726f04a",
-                  "prefix": "AuditLog_userId_createdAt_idx",
+                  "name": "audit_logs_userId_createdAt_idx_f726f04a",
+                  "prefix": "audit_logs_userId_createdAt_idx",
                   "unique": false
                 },
                 {
                   "columns": [
                     "userId"
                   ],
-                  "name": "AuditLog_userId_idx_a489d58a",
-                  "prefix": "AuditLog_userId_idx",
+                  "name": "audit_logs_userId_idx_a489d58a",
+                  "prefix": "audit_logs_userId_idx",
                   "unique": false
                 }
               ],
@@ -4969,7 +5027,7 @@
               },
               "uniques": []
             },
-            "BlogCategory": {
+            "blog_categories": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -5035,8 +5093,8 @@
                     "isVisible",
                     "sortOrder"
                   ],
-                  "name": "BlogCategory_isVisible_sortOrder_idx_da4c18e1",
-                  "prefix": "BlogCategory_isVisible_sortOrder_idx",
+                  "name": "blog_categories_isVisible_sortOrder_idx_da4c18e1",
+                  "prefix": "blog_categories_isVisible_sortOrder_idx",
                   "unique": false
                 }
               ],
@@ -5053,12 +5111,93 @@
                 }
               ]
             },
-            "BlogPost": {
+            "blog_post_tags": {
+              "columns": {
+                "postId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "tagId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "index": {
+                    "name": "blog_post_tags_postId_idx_a7a72715"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "postId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "blog_post_tags"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "blog_posts"
+                  }
+                },
+                {
+                  "index": {
+                    "name": "blog_post_tags_tagId_idx_86854244"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "tagId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "blog_post_tags"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "blog_tags"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "postId"
+                  ],
+                  "name": "blog_post_tags_postId_idx_a7a72715",
+                  "prefix": "blog_post_tags_postId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "tagId"
+                  ],
+                  "name": "blog_post_tags_tagId_idx_86854244",
+                  "prefix": "blog_post_tags_tagId_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "postId",
+                  "tagId"
+                ]
+              },
+              "uniques": []
+            },
+            "blog_posts": {
               "checks": [
                 {
                   "expression": "\"status\" IN ('DRAFT', 'PUBLISHED', 'ARCHIVED')",
-                  "name": "BlogPost_status_check_bc64f66b",
-                  "prefix": "BlogPost_status_check"
+                  "name": "blog_posts_status_check_bc64f66b",
+                  "prefix": "blog_posts_status_check"
                 }
               ],
               "columns": {
@@ -5158,7 +5297,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "BlogPost_categoryId_idx_15c304f2"
+                    "name": "blog_posts_categoryId_idx_15c304f2"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -5166,19 +5305,19 @@
                       "categoryId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "BlogPost"
+                    "tableName": "blog_posts"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "BlogCategory"
+                    "tableName": "blog_categories"
                   }
                 },
                 {
                   "index": {
-                    "name": "BlogPost_authorId_idx_e47547ed"
+                    "name": "blog_posts_authorId_idx_e47547ed"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -5186,19 +5325,19 @@
                       "authorId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "BlogPost"
+                    "tableName": "blog_posts"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "User"
+                    "tableName": "users"
                   }
                 },
                 {
                   "index": {
-                    "name": "BlogPost_coverImageId_idx_d3a925cc"
+                    "name": "blog_posts_coverImageId_idx_d3a925cc"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -5206,70 +5345,18 @@
                       "coverImageId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "BlogPost"
+                    "tableName": "blog_posts"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
               "indexes": [
-                {
-                  "columns": [
-                    "authorId"
-                  ],
-                  "name": "BlogPost_authorId_idx_e47547ed",
-                  "prefix": "BlogPost_authorId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "categoryId"
-                  ],
-                  "name": "BlogPost_categoryId_idx_15c304f2",
-                  "prefix": "BlogPost_categoryId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "categoryId",
-                    "status",
-                    "publishedAt"
-                  ],
-                  "name": "BlogPost_categoryId_status_publishedAt_idx_7464ef31",
-                  "prefix": "BlogPost_categoryId_status_publishedAt_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "coverImageId"
-                  ],
-                  "name": "BlogPost_coverImageId_idx_d3a925cc",
-                  "prefix": "BlogPost_coverImageId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "featured",
-                    "status"
-                  ],
-                  "name": "BlogPost_featured_status_idx_5e31de61",
-                  "prefix": "BlogPost_featured_status_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "status",
-                    "publishedAt"
-                  ],
-                  "name": "BlogPost_status_publishedAt_idx_4d4b1960",
-                  "prefix": "BlogPost_status_publishedAt_idx",
-                  "unique": false
-                },
                 {
                   "columns": [
                     "title",
@@ -5294,6 +5381,58 @@
                   "prefix": "blog_post_search",
                   "type": "fullText",
                   "unique": false
+                },
+                {
+                  "columns": [
+                    "authorId"
+                  ],
+                  "name": "blog_posts_authorId_idx_e47547ed",
+                  "prefix": "blog_posts_authorId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "categoryId"
+                  ],
+                  "name": "blog_posts_categoryId_idx_15c304f2",
+                  "prefix": "blog_posts_categoryId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "categoryId",
+                    "status",
+                    "publishedAt"
+                  ],
+                  "name": "blog_posts_categoryId_status_publishedAt_idx_7464ef31",
+                  "prefix": "blog_posts_categoryId_status_publishedAt_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "coverImageId"
+                  ],
+                  "name": "blog_posts_coverImageId_idx_d3a925cc",
+                  "prefix": "blog_posts_coverImageId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "featured",
+                    "status"
+                  ],
+                  "name": "blog_posts_featured_status_idx_5e31de61",
+                  "prefix": "blog_posts_featured_status_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "status",
+                    "publishedAt"
+                  ],
+                  "name": "blog_posts_status_publishedAt_idx_4d4b1960",
+                  "prefix": "blog_posts_status_publishedAt_idx",
+                  "unique": false
                 }
               ],
               "primaryKey": {
@@ -5309,88 +5448,7 @@
                 }
               ]
             },
-            "BlogPostTag": {
-              "columns": {
-                "postId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "tagId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [
-                {
-                  "index": {
-                    "name": "BlogPostTag_postId_idx_a7a72715"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "postId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "BlogPostTag"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "BlogPost"
-                  }
-                },
-                {
-                  "index": {
-                    "name": "BlogPostTag_tagId_idx_86854244"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "tagId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "BlogPostTag"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "BlogTag"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "postId"
-                  ],
-                  "name": "BlogPostTag_postId_idx_a7a72715",
-                  "prefix": "BlogPostTag_postId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "tagId"
-                  ],
-                  "name": "BlogPostTag_tagId_idx_86854244",
-                  "prefix": "BlogPostTag_tagId_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "postId",
-                  "tagId"
-                ]
-              },
-              "uniques": []
-            },
-            "BlogTag": {
+            "blog_tags": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -5441,7 +5499,88 @@
                 }
               ]
             },
-            "Certification": {
+            "certification_skills": {
+              "columns": {
+                "certificationId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "skillId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "index": {
+                    "name": "certification_skills_certificationId_idx_0bbbd665"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "certificationId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "certification_skills"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "certifications"
+                  }
+                },
+                {
+                  "index": {
+                    "name": "certification_skills_skillId_idx_6e19993d"
+                  },
+                  "onDelete": "restrict",
+                  "source": {
+                    "columns": [
+                      "skillId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "certification_skills"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "skills"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "certificationId"
+                  ],
+                  "name": "certification_skills_certificationId_idx_0bbbd665",
+                  "prefix": "certification_skills_certificationId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "skillId"
+                  ],
+                  "name": "certification_skills_skillId_idx_6e19993d",
+                  "prefix": "certification_skills_skillId_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "certificationId",
+                  "skillId"
+                ]
+              },
+              "uniques": []
+            },
+            "certifications": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -5528,7 +5667,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Certification_imageAssetId_idx_03d8978a"
+                    "name": "certifications_imageAssetId_idx_03d8978a"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -5536,14 +5675,14 @@
                       "imageAssetId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Certification"
+                    "tableName": "certifications"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
@@ -5552,8 +5691,8 @@
                   "columns": [
                     "imageAssetId"
                   ],
-                  "name": "Certification_imageAssetId_idx_03d8978a",
-                  "prefix": "Certification_imageAssetId_idx",
+                  "name": "certifications_imageAssetId_idx_03d8978a",
+                  "prefix": "certifications_imageAssetId_idx",
                   "unique": false
                 },
                 {
@@ -5561,16 +5700,16 @@
                     "isVisible",
                     "sortOrder"
                   ],
-                  "name": "Certification_isVisible_sortOrder_idx_da4c18e1",
-                  "prefix": "Certification_isVisible_sortOrder_idx",
+                  "name": "certifications_isVisible_sortOrder_idx_da4c18e1",
+                  "prefix": "certifications_isVisible_sortOrder_idx",
                   "unique": false
                 },
                 {
                   "columns": [
                     "issueDate"
                   ],
-                  "name": "Certification_issueDate_idx_7f1c5376",
-                  "prefix": "Certification_issueDate_idx",
+                  "name": "certifications_issueDate_idx_7f1c5376",
+                  "prefix": "certifications_issueDate_idx",
                   "unique": false
                 }
               ],
@@ -5581,93 +5720,12 @@
               },
               "uniques": []
             },
-            "CertificationSkill": {
-              "columns": {
-                "certificationId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "skillId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [
-                {
-                  "index": {
-                    "name": "CertificationSkill_certificationId_idx_0bbbd665"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "certificationId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "CertificationSkill"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Certification"
-                  }
-                },
-                {
-                  "index": {
-                    "name": "CertificationSkill_skillId_idx_6e19993d"
-                  },
-                  "onDelete": "restrict",
-                  "source": {
-                    "columns": [
-                      "skillId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "CertificationSkill"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Skill"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "certificationId"
-                  ],
-                  "name": "CertificationSkill_certificationId_idx_0bbbd665",
-                  "prefix": "CertificationSkill_certificationId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "skillId"
-                  ],
-                  "name": "CertificationSkill_skillId_idx_6e19993d",
-                  "prefix": "CertificationSkill_skillId_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "certificationId",
-                  "skillId"
-                ]
-              },
-              "uniques": []
-            },
-            "ContactMessage": {
+            "contact_messages": {
               "checks": [
                 {
                   "expression": "\"status\" IN ('NEW', 'READ', 'REPLIED', 'ARCHIVED')",
-                  "name": "ContactMessage_status_check_4518e741",
-                  "prefix": "ContactMessage_status_check"
+                  "name": "contact_messages_status_check_4518e741",
+                  "prefix": "contact_messages_status_check"
                 }
               ],
               "columns": {
@@ -5747,8 +5805,8 @@
                     "status",
                     "createdAt"
                   ],
-                  "name": "ContactMessage_status_createdAt_idx_58610442",
-                  "prefix": "ContactMessage_status_createdAt_idx",
+                  "name": "contact_messages_status_createdAt_idx_58610442",
+                  "prefix": "contact_messages_status_createdAt_idx",
                   "unique": false
                 }
               ],
@@ -5759,12 +5817,12 @@
               },
               "uniques": []
             },
-            "Education": {
+            "educations": {
               "checks": [
                 {
                   "expression": "\"status\" IN ('COMPLETED', 'IN_PROGRESS', 'PAUSED')",
-                  "name": "Education_status_check_20669d57",
-                  "prefix": "Education_status_check"
+                  "name": "educations_status_check_20669d57",
+                  "prefix": "educations_status_check"
                 }
               ],
               "columns": {
@@ -5878,7 +5936,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Education_institutionLogoId_idx_6e8398ce"
+                    "name": "educations_institutionLogoId_idx_6e8398ce"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -5886,14 +5944,14 @@
                       "institutionLogoId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Education"
+                    "tableName": "educations"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
@@ -5902,8 +5960,8 @@
                   "columns": [
                     "institutionLogoId"
                   ],
-                  "name": "Education_institutionLogoId_idx_6e8398ce",
-                  "prefix": "Education_institutionLogoId_idx",
+                  "name": "educations_institutionLogoId_idx_6e8398ce",
+                  "prefix": "educations_institutionLogoId_idx",
                   "unique": false
                 },
                 {
@@ -5911,16 +5969,16 @@
                     "isVisible",
                     "sortOrder"
                   ],
-                  "name": "Education_isVisible_sortOrder_idx_da4c18e1",
-                  "prefix": "Education_isVisible_sortOrder_idx",
+                  "name": "educations_isVisible_sortOrder_idx_da4c18e1",
+                  "prefix": "educations_isVisible_sortOrder_idx",
                   "unique": false
                 },
                 {
                   "columns": [
                     "startDate"
                   ],
-                  "name": "Education_startDate_idx_9ce08316",
-                  "prefix": "Education_startDate_idx",
+                  "name": "educations_startDate_idx_9ce08316",
+                  "prefix": "educations_startDate_idx",
                   "unique": false
                 }
               ],
@@ -5931,22 +5989,103 @@
               },
               "uniques": []
             },
-            "Experience": {
+            "experience_skills": {
+              "columns": {
+                "experienceId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "skillId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "index": {
+                    "name": "experience_skills_experienceId_idx_d593f48a"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "experienceId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "experience_skills"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "experiences"
+                  }
+                },
+                {
+                  "index": {
+                    "name": "experience_skills_skillId_idx_6e19993d"
+                  },
+                  "onDelete": "restrict",
+                  "source": {
+                    "columns": [
+                      "skillId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "experience_skills"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "skills"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "experienceId"
+                  ],
+                  "name": "experience_skills_experienceId_idx_d593f48a",
+                  "prefix": "experience_skills_experienceId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "skillId"
+                  ],
+                  "name": "experience_skills_skillId_idx_6e19993d",
+                  "prefix": "experience_skills_skillId_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "experienceId",
+                  "skillId"
+                ]
+              },
+              "uniques": []
+            },
+            "experiences": {
               "checks": [
                 {
                   "expression": "array_position(\"achievements\", NULL) IS NULL",
-                  "name": "Experience_achievements_elem_not_null_2e6081d8",
-                  "prefix": "Experience_achievements_elem_not_null"
+                  "name": "experiences_achievements_elem_not_null_2e6081d8",
+                  "prefix": "experiences_achievements_elem_not_null"
                 },
                 {
                   "expression": "\"employmentType\" IN ('FULL_TIME', 'PART_TIME', 'CONTRACT', 'INTERNSHIP', 'FREELANCE', 'SELF_EMPLOYED')",
-                  "name": "Experience_employmentType_check_5c5c2d18",
-                  "prefix": "Experience_employmentType_check"
+                  "name": "experiences_employmentType_check_5c5c2d18",
+                  "prefix": "experiences_employmentType_check"
                 },
                 {
                   "expression": "array_position(\"responsibilities\", NULL) IS NULL",
-                  "name": "Experience_responsibilities_elem_not_null_1639ba51",
-                  "prefix": "Experience_responsibilities_elem_not_null"
+                  "name": "experiences_responsibilities_elem_not_null_1639ba51",
+                  "prefix": "experiences_responsibilities_elem_not_null"
                 }
               ],
               "columns": {
@@ -6079,7 +6218,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Experience_companyLogoId_idx_d9fa7444"
+                    "name": "experiences_companyLogoId_idx_d9fa7444"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -6087,14 +6226,14 @@
                       "companyLogoId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Experience"
+                    "tableName": "experiences"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
@@ -6103,8 +6242,8 @@
                   "columns": [
                     "companyLogoId"
                   ],
-                  "name": "Experience_companyLogoId_idx_d9fa7444",
-                  "prefix": "Experience_companyLogoId_idx",
+                  "name": "experiences_companyLogoId_idx_d9fa7444",
+                  "prefix": "experiences_companyLogoId_idx",
                   "unique": false
                 },
                 {
@@ -6112,8 +6251,8 @@
                     "isCurrent",
                     "startDate"
                   ],
-                  "name": "Experience_isCurrent_startDate_idx_3727e823",
-                  "prefix": "Experience_isCurrent_startDate_idx",
+                  "name": "experiences_isCurrent_startDate_idx_3727e823",
+                  "prefix": "experiences_isCurrent_startDate_idx",
                   "unique": false
                 },
                 {
@@ -6121,8 +6260,8 @@
                     "isVisible",
                     "sortOrder"
                   ],
-                  "name": "Experience_isVisible_sortOrder_idx_da4c18e1",
-                  "prefix": "Experience_isVisible_sortOrder_idx",
+                  "name": "experiences_isVisible_sortOrder_idx_da4c18e1",
+                  "prefix": "experiences_isVisible_sortOrder_idx",
                   "unique": false
                 }
               ],
@@ -6133,93 +6272,12 @@
               },
               "uniques": []
             },
-            "ExperienceSkill": {
-              "columns": {
-                "experienceId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "skillId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [
-                {
-                  "index": {
-                    "name": "ExperienceSkill_experienceId_idx_d593f48a"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "experienceId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ExperienceSkill"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Experience"
-                  }
-                },
-                {
-                  "index": {
-                    "name": "ExperienceSkill_skillId_idx_6e19993d"
-                  },
-                  "onDelete": "restrict",
-                  "source": {
-                    "columns": [
-                      "skillId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ExperienceSkill"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Skill"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "experienceId"
-                  ],
-                  "name": "ExperienceSkill_experienceId_idx_d593f48a",
-                  "prefix": "ExperienceSkill_experienceId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "skillId"
-                  ],
-                  "name": "ExperienceSkill_skillId_idx_6e19993d",
-                  "prefix": "ExperienceSkill_skillId_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "experienceId",
-                  "skillId"
-                ]
-              },
-              "uniques": []
-            },
-            "MediaAsset": {
+            "media_assets": {
               "checks": [
                 {
                   "expression": "\"kind\" IN ('IMAGE', 'VIDEO', 'DOCUMENT', 'OTHER')",
-                  "name": "MediaAsset_kind_check_06609f5a",
-                  "prefix": "MediaAsset_kind_check"
+                  "name": "media_assets_kind_check_06609f5a",
+                  "prefix": "media_assets_kind_check"
                 }
               ],
               "columns": {
@@ -6337,8 +6395,8 @@
                     "folder",
                     "createdAt"
                   ],
-                  "name": "MediaAsset_folder_createdAt_idx_d035f382",
-                  "prefix": "MediaAsset_folder_createdAt_idx",
+                  "name": "media_assets_folder_createdAt_idx_d035f382",
+                  "prefix": "media_assets_folder_createdAt_idx",
                   "unique": false
                 },
                 {
@@ -6346,8 +6404,8 @@
                     "kind",
                     "createdAt"
                   ],
-                  "name": "MediaAsset_kind_createdAt_idx_a3b548ae",
-                  "prefix": "MediaAsset_kind_createdAt_idx",
+                  "name": "media_assets_kind_createdAt_idx_a3b548ae",
+                  "prefix": "media_assets_kind_createdAt_idx",
                   "unique": false
                 }
               ],
@@ -6365,12 +6423,12 @@
                 }
               ]
             },
-            "NewsletterSubscriber": {
+            "newsletter_subscribers": {
               "checks": [
                 {
                   "expression": "\"status\" IN ('PENDING', 'SUBSCRIBED', 'UNSUBSCRIBED')",
-                  "name": "NewsletterSubscriber_status_check_af50fe37",
-                  "prefix": "NewsletterSubscriber_status_check"
+                  "name": "newsletter_subscribers_status_check_af50fe37",
+                  "prefix": "newsletter_subscribers_status_check"
                 }
               ],
               "columns": {
@@ -6459,8 +6517,8 @@
                     "status",
                     "createdAt"
                   ],
-                  "name": "NewsletterSubscriber_status_createdAt_idx_58610442",
-                  "prefix": "NewsletterSubscriber_status_createdAt_idx",
+                  "name": "newsletter_subscribers_status_createdAt_idx_58610442",
+                  "prefix": "newsletter_subscribers_status_createdAt_idx",
                   "unique": false
                 }
               ],
@@ -6487,7 +6545,7 @@
                 }
               ]
             },
-            "PageSeo": {
+            "page_sees": {
               "columns": {
                 "canonicalUrl": {
                   "codecId": "pg/text@1",
@@ -6569,7 +6627,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "PageSeo_ogImageId_idx_6e14f7ca"
+                    "name": "page_sees_ogImageId_idx_6e14f7ca"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -6577,14 +6635,14 @@
                       "ogImageId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "PageSeo"
+                    "tableName": "page_sees"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
@@ -6593,8 +6651,8 @@
                   "columns": [
                     "ogImageId"
                   ],
-                  "name": "PageSeo_ogImageId_idx_6e14f7ca",
-                  "prefix": "PageSeo_ogImageId_idx",
+                  "name": "page_sees_ogImageId_idx_6e14f7ca",
+                  "prefix": "page_sees_ogImageId_idx",
                   "unique": false
                 }
               ],
@@ -6611,7 +6669,7 @@
                 }
               ]
             },
-            "PageView": {
+            "page_views": {
               "columns": {
                 "countryCode": {
                   "codecId": "pg/text@1",
@@ -6655,16 +6713,16 @@
                     "path",
                     "viewedAt"
                   ],
-                  "name": "PageView_path_viewedAt_idx_15bee72f",
-                  "prefix": "PageView_path_viewedAt_idx",
+                  "name": "page_views_path_viewedAt_idx_15bee72f",
+                  "prefix": "page_views_path_viewedAt_idx",
                   "unique": false
                 },
                 {
                   "columns": [
                     "viewedAt"
                   ],
-                  "name": "PageView_viewedAt_idx_01eec48b",
-                  "prefix": "PageView_viewedAt_idx",
+                  "name": "page_views_viewedAt_idx_01eec48b",
+                  "prefix": "page_views_viewedAt_idx",
                   "unique": false
                 },
                 {
@@ -6672,8 +6730,8 @@
                     "visitorHash",
                     "viewedAt"
                   ],
-                  "name": "PageView_visitorHash_viewedAt_idx_3e54e954",
-                  "prefix": "PageView_visitorHash_viewedAt_idx",
+                  "name": "page_views_visitorHash_viewedAt_idx_3e54e954",
+                  "prefix": "page_views_visitorHash_viewedAt_idx",
                   "unique": false
                 }
               ],
@@ -6684,7 +6742,290 @@
               },
               "uniques": []
             },
-            "Profile": {
+            "portfolio_embeddings": {
+              "columns": {
+                "content": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "embedding": {
+                  "codecId": "pg/vector@1",
+                  "dataType": "pgvector/vector",
+                  "nullable": true,
+                  "typeParams": {
+                    "length": 1536
+                  }
+                },
+                "id": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "metadata": {
+                  "codecId": "pg/json@1",
+                  "dataType": "pg/json",
+                  "nullable": true
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "profile_items": {
+              "checks": [
+                {
+                  "expression": "\"type\" IN ('ENGINEERING_PRACTICE', 'AREA_OF_INTEREST')",
+                  "name": "profile_items_type_check_e297a9e5",
+                  "prefix": "profile_items_type_check"
+                }
+              ],
+              "columns": {
+                "createdAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                },
+                "description": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "id": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "isVisible": {
+                  "codecId": "pg/bool@1",
+                  "dataType": "pg/bool",
+                  "default": {
+                    "kind": "literal",
+                    "value": true
+                  },
+                  "nullable": false
+                },
+                "profileId": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "default": {
+                    "kind": "literal",
+                    "value": "main"
+                  },
+                  "nullable": false
+                },
+                "sortOrder": {
+                  "codecId": "pg/int4@1",
+                  "dataType": "pg/int4",
+                  "default": {
+                    "kind": "literal",
+                    "value": 0
+                  },
+                  "nullable": false
+                },
+                "title": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "type": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false,
+                  "valueSet": {
+                    "entityKind": "valueSet",
+                    "entityName": "ProfileItemType",
+                    "namespaceId": "public",
+                    "plane": "storage"
+                  }
+                },
+                "updatedAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "index": {
+                    "name": "profile_items_profileId_idx_d9cdfcaf"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "profileId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "profile_items"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "profiles"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "profileId"
+                  ],
+                  "name": "profile_items_profileId_idx_d9cdfcaf",
+                  "prefix": "profile_items_profileId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "profileId",
+                    "type",
+                    "isVisible",
+                    "sortOrder"
+                  ],
+                  "name": "profile_items_profileId_type_isVisible_sortOrder_idx_8cd38ed2",
+                  "prefix": "profile_items_profileId_type_isVisible_sortOrder_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "profile_languages": {
+              "columns": {
+                "code": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "createdAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "isVisible": {
+                  "codecId": "pg/bool@1",
+                  "dataType": "pg/bool",
+                  "default": {
+                    "kind": "literal",
+                    "value": true
+                  },
+                  "nullable": false
+                },
+                "name": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "proficiency": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "profileId": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "default": {
+                    "kind": "literal",
+                    "value": "main"
+                  },
+                  "nullable": false
+                },
+                "sortOrder": {
+                  "codecId": "pg/int4@1",
+                  "dataType": "pg/int4",
+                  "default": {
+                    "kind": "literal",
+                    "value": 0
+                  },
+                  "nullable": false
+                },
+                "updatedAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "index": {
+                    "name": "profile_languages_profileId_idx_d9cdfcaf"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "profileId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "profile_languages"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "profiles"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "profileId"
+                  ],
+                  "name": "profile_languages_profileId_idx_d9cdfcaf",
+                  "prefix": "profile_languages_profileId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "profileId",
+                    "isVisible",
+                    "sortOrder"
+                  ],
+                  "name": "profile_languages_profileId_isVisible_sortOrder_idx_8a1dfaa9",
+                  "prefix": "profile_languages_profileId_isVisible_sortOrder_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "profiles": {
               "columns": {
                 "avatarAssetId": {
                   "codecId": "pg/uuid@1",
@@ -6797,7 +7138,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Profile_avatarAssetId_idx_58af6986"
+                    "name": "profiles_avatarAssetId_idx_58af6986"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -6805,19 +7146,19 @@
                       "avatarAssetId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Profile"
+                    "tableName": "profiles"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 },
                 {
                   "index": {
-                    "name": "Profile_resumeAssetId_idx_050cffe6"
+                    "name": "profiles_resumeAssetId_idx_050cffe6"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -6825,14 +7166,14 @@
                       "resumeAssetId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Profile"
+                    "tableName": "profiles"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
@@ -6841,16 +7182,16 @@
                   "columns": [
                     "avatarAssetId"
                   ],
-                  "name": "Profile_avatarAssetId_idx_58af6986",
-                  "prefix": "Profile_avatarAssetId_idx",
+                  "name": "profiles_avatarAssetId_idx_58af6986",
+                  "prefix": "profiles_avatarAssetId_idx",
                   "unique": false
                 },
                 {
                   "columns": [
                     "resumeAssetId"
                   ],
-                  "name": "Profile_resumeAssetId_idx_050cffe6",
-                  "prefix": "Profile_resumeAssetId_idx",
+                  "name": "profiles_resumeAssetId_idx_050cffe6",
+                  "prefix": "profiles_resumeAssetId_idx",
                   "unique": false
                 }
               ],
@@ -6861,12 +7202,147 @@
               },
               "uniques": []
             },
-            "ProfileItem": {
+            "project_images": {
+              "columns": {
+                "altText": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "caption": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "createdAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "mediaAssetId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "projectId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "sortOrder": {
+                  "codecId": "pg/int4@1",
+                  "dataType": "pg/int4",
+                  "default": {
+                    "kind": "literal",
+                    "value": 0
+                  },
+                  "nullable": false
+                },
+                "updatedAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "index": {
+                    "name": "project_images_projectId_idx_a96e4d92"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "projectId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "project_images"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "projects"
+                  }
+                },
+                {
+                  "index": {
+                    "name": "project_images_mediaAssetId_idx_523c8890"
+                  },
+                  "onDelete": "restrict",
+                  "source": {
+                    "columns": [
+                      "mediaAssetId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "project_images"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "media_assets"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "mediaAssetId"
+                  ],
+                  "name": "project_images_mediaAssetId_idx_523c8890",
+                  "prefix": "project_images_mediaAssetId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "projectId"
+                  ],
+                  "name": "project_images_projectId_idx_a96e4d92",
+                  "prefix": "project_images_projectId_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "projectId",
+                    "sortOrder"
+                  ]
+                },
+                {
+                  "columns": [
+                    "projectId",
+                    "mediaAssetId"
+                  ]
+                }
+              ]
+            },
+            "project_links": {
               "checks": [
                 {
-                  "expression": "\"type\" IN ('ENGINEERING_PRACTICE', 'AREA_OF_INTEREST')",
-                  "name": "ProfileItem_type_check_e297a9e5",
-                  "prefix": "ProfileItem_type_check"
+                  "expression": "\"type\" IN ('REPOSITORY', 'LIVE_DEMO', 'DOCUMENTATION', 'CASE_STUDY', 'OTHER')",
+                  "name": "project_links_type_check_1f0f56e5",
+                  "prefix": "project_links_type_check"
                 }
               ],
               "columns": {
@@ -6879,32 +7355,19 @@
                   },
                   "nullable": false
                 },
-                "description": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                },
                 "id": {
                   "codecId": "pg/uuid@1",
                   "dataType": "pg/uuid",
                   "nullable": false
                 },
-                "isVisible": {
-                  "codecId": "pg/bool@1",
-                  "dataType": "pg/bool",
-                  "default": {
-                    "kind": "literal",
-                    "value": true
-                  },
-                  "nullable": false
-                },
-                "profileId": {
+                "label": {
                   "codecId": "pg/text@1",
                   "dataType": "pg/text",
-                  "default": {
-                    "kind": "literal",
-                    "value": "main"
-                  },
+                  "nullable": false
+                },
+                "projectId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
                   "nullable": false
                 },
                 "sortOrder": {
@@ -6916,18 +7379,13 @@
                   },
                   "nullable": false
                 },
-                "title": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                },
                 "type": {
                   "codecId": "pg/text@1",
                   "dataType": "pg/text",
                   "nullable": false,
                   "valueSet": {
                     "entityKind": "valueSet",
-                    "entityName": "ProfileItemType",
+                    "entityName": "ProjectLinkType",
                     "namespaceId": "public",
                     "plane": "storage"
                   }
@@ -6940,48 +7398,51 @@
                     "kind": "function"
                   },
                   "nullable": false
+                },
+                "url": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
                 }
               },
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "ProfileItem_profileId_idx_d9cdfcaf"
+                    "name": "project_links_projectId_idx_a96e4d92"
                   },
                   "onDelete": "cascade",
                   "source": {
                     "columns": [
-                      "profileId"
+                      "projectId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "ProfileItem"
+                    "tableName": "project_links"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Profile"
+                    "tableName": "projects"
                   }
                 }
               ],
               "indexes": [
                 {
                   "columns": [
-                    "profileId"
+                    "projectId"
                   ],
-                  "name": "ProfileItem_profileId_idx_d9cdfcaf",
-                  "prefix": "ProfileItem_profileId_idx",
+                  "name": "project_links_projectId_idx_a96e4d92",
+                  "prefix": "project_links_projectId_idx",
                   "unique": false
                 },
                 {
                   "columns": [
-                    "profileId",
-                    "type",
-                    "isVisible",
+                    "projectId",
                     "sortOrder"
                   ],
-                  "name": "ProfileItem_profileId_type_isVisible_sortOrder_idx_8cd38ed2",
-                  "prefix": "ProfileItem_profileId_type_isVisible_sortOrder_idx",
+                  "name": "project_links_projectId_sortOrder_idx_853b79e8",
+                  "prefix": "project_links_projectId_sortOrder_idx",
                   "unique": false
                 }
               ],
@@ -6990,55 +7451,25 @@
                   "id"
                 ]
               },
-              "uniques": []
+              "uniques": [
+                {
+                  "columns": [
+                    "projectId",
+                    "url"
+                  ]
+                }
+              ]
             },
-            "ProfileLanguage": {
+            "project_skills": {
               "columns": {
-                "code": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                },
-                "createdAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                },
-                "id": {
+                "projectId": {
                   "codecId": "pg/uuid@1",
                   "dataType": "pg/uuid",
                   "nullable": false
                 },
-                "isVisible": {
-                  "codecId": "pg/bool@1",
-                  "dataType": "pg/bool",
-                  "default": {
-                    "kind": "literal",
-                    "value": true
-                  },
-                  "nullable": false
-                },
-                "name": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                },
-                "proficiency": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                },
-                "profileId": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "default": {
-                    "kind": "literal",
-                    "value": "main"
-                  },
+                "skillId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
                   "nullable": false
                 },
                 "sortOrder": {
@@ -7049,8 +7480,94 @@
                     "value": 0
                   },
                   "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "index": {
+                    "name": "project_skills_projectId_idx_a96e4d92"
+                  },
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "projectId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "project_skills"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "projects"
+                  }
                 },
-                "updatedAt": {
+                {
+                  "index": {
+                    "name": "project_skills_skillId_idx_6e19993d"
+                  },
+                  "onDelete": "restrict",
+                  "source": {
+                    "columns": [
+                      "skillId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "project_skills"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "skills"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "projectId"
+                  ],
+                  "name": "project_skills_projectId_idx_a96e4d92",
+                  "prefix": "project_skills_projectId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "skillId"
+                  ],
+                  "name": "project_skills_skillId_idx_6e19993d",
+                  "prefix": "project_skills_skillId_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "projectId",
+                  "skillId"
+                ]
+              },
+              "uniques": []
+            },
+            "project_views": {
+              "columns": {
+                "id": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "projectId": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "referrer": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "viewedAt": {
                   "codecId": "pg/timestamptz-temporal@1",
                   "dataType": "pg/timestamptz",
                   "default": {
@@ -7058,47 +7575,68 @@
                     "kind": "function"
                   },
                   "nullable": false
+                },
+                "visitorHash": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
                 }
               },
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "ProfileLanguage_profileId_idx_d9cdfcaf"
+                    "name": "project_views_projectId_idx_a96e4d92"
                   },
                   "onDelete": "cascade",
                   "source": {
                     "columns": [
-                      "profileId"
+                      "projectId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "ProfileLanguage"
+                    "tableName": "project_views"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Profile"
+                    "tableName": "projects"
                   }
                 }
               ],
               "indexes": [
                 {
                   "columns": [
-                    "profileId"
+                    "projectId"
                   ],
-                  "name": "ProfileLanguage_profileId_idx_d9cdfcaf",
-                  "prefix": "ProfileLanguage_profileId_idx",
+                  "name": "project_views_projectId_idx_a96e4d92",
+                  "prefix": "project_views_projectId_idx",
                   "unique": false
                 },
                 {
                   "columns": [
-                    "profileId",
-                    "isVisible",
-                    "sortOrder"
+                    "projectId",
+                    "viewedAt"
                   ],
-                  "name": "ProfileLanguage_profileId_isVisible_sortOrder_idx_8a1dfaa9",
-                  "prefix": "ProfileLanguage_profileId_isVisible_sortOrder_idx",
+                  "name": "project_views_projectId_viewedAt_idx_08df9949",
+                  "prefix": "project_views_projectId_viewedAt_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "viewedAt"
+                  ],
+                  "name": "project_views_viewedAt_idx_01eec48b",
+                  "prefix": "project_views_viewedAt_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "visitorHash",
+                    "viewedAt"
+                  ],
+                  "name": "project_views_visitorHash_viewedAt_idx_3e54e954",
+                  "prefix": "project_views_visitorHash_viewedAt_idx",
                   "unique": false
                 }
               ],
@@ -7109,32 +7647,32 @@
               },
               "uniques": []
             },
-            "Project": {
+            "projects": {
               "checks": [
                 {
                   "expression": "array_position(\"architecture\", NULL) IS NULL",
-                  "name": "Project_architecture_elem_not_null_18d1e6c7",
-                  "prefix": "Project_architecture_elem_not_null"
+                  "name": "projects_architecture_elem_not_null_18d1e6c7",
+                  "prefix": "projects_architecture_elem_not_null"
                 },
                 {
                   "expression": "\"category\" IN ('FULL_STACK', 'FRONTEND', 'BACKEND', 'AI')",
-                  "name": "Project_category_check_91e869df",
-                  "prefix": "Project_category_check"
+                  "name": "projects_category_check_91e869df",
+                  "prefix": "projects_category_check"
                 },
                 {
                   "expression": "array_position(\"challenges\", NULL) IS NULL",
-                  "name": "Project_challenges_elem_not_null_8c29d25c",
-                  "prefix": "Project_challenges_elem_not_null"
+                  "name": "projects_challenges_elem_not_null_8c29d25c",
+                  "prefix": "projects_challenges_elem_not_null"
                 },
                 {
                   "expression": "array_position(\"outcomes\", NULL) IS NULL",
-                  "name": "Project_outcomes_elem_not_null_f6da8c1f",
-                  "prefix": "Project_outcomes_elem_not_null"
+                  "name": "projects_outcomes_elem_not_null_f6da8c1f",
+                  "prefix": "projects_outcomes_elem_not_null"
                 },
                 {
                   "expression": "\"status\" IN ('COMPLETED', 'IN_PROGRESS', 'MAINTAINED')",
-                  "name": "Project_status_check_6f857b34",
-                  "prefix": "Project_status_check"
+                  "name": "projects_status_check_6f857b34",
+                  "prefix": "projects_status_check"
                 }
               ],
               "columns": {
@@ -7294,7 +7832,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Project_coverImageId_idx_d3a925cc"
+                    "name": "projects_coverImageId_idx_d3a925cc"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -7302,55 +7840,18 @@
                       "coverImageId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Project"
+                    "tableName": "projects"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
               "indexes": [
-                {
-                  "columns": [
-                    "coverImageId"
-                  ],
-                  "name": "Project_coverImageId_idx_d3a925cc",
-                  "prefix": "Project_coverImageId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "published",
-                    "category",
-                    "sortOrder"
-                  ],
-                  "name": "Project_published_category_sortOrder_idx_f123490d",
-                  "prefix": "Project_published_category_sortOrder_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "published",
-                    "featured",
-                    "sortOrder"
-                  ],
-                  "name": "Project_published_featured_sortOrder_idx_43a8e2bf",
-                  "prefix": "Project_published_featured_sortOrder_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "published",
-                    "publishedAt"
-                  ],
-                  "name": "Project_published_publishedAt_idx_7295cb73",
-                  "prefix": "Project_published_publishedAt_idx",
-                  "unique": false
-                },
                 {
                   "columns": [
                     "title",
@@ -7375,6 +7876,43 @@
                   "prefix": "project_search",
                   "type": "fullText",
                   "unique": false
+                },
+                {
+                  "columns": [
+                    "coverImageId"
+                  ],
+                  "name": "projects_coverImageId_idx_d3a925cc",
+                  "prefix": "projects_coverImageId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "published",
+                    "category",
+                    "sortOrder"
+                  ],
+                  "name": "projects_published_category_sortOrder_idx_f123490d",
+                  "prefix": "projects_published_category_sortOrder_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "published",
+                    "featured",
+                    "sortOrder"
+                  ],
+                  "name": "projects_published_featured_sortOrder_idx_43a8e2bf",
+                  "prefix": "projects_published_featured_sortOrder_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "published",
+                    "publishedAt"
+                  ],
+                  "name": "projects_published_publishedAt_idx_7295cb73",
+                  "prefix": "projects_published_publishedAt_idx",
+                  "unique": false
                 }
               ],
               "primaryKey": {
@@ -7390,452 +7928,7 @@
                 }
               ]
             },
-            "ProjectImage": {
-              "columns": {
-                "altText": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                },
-                "caption": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                },
-                "createdAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                },
-                "id": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "mediaAssetId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "projectId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "sortOrder": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "default": {
-                    "kind": "literal",
-                    "value": 0
-                  },
-                  "nullable": false
-                },
-                "updatedAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [
-                {
-                  "index": {
-                    "name": "ProjectImage_projectId_idx_a96e4d92"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "projectId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ProjectImage"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Project"
-                  }
-                },
-                {
-                  "index": {
-                    "name": "ProjectImage_mediaAssetId_idx_523c8890"
-                  },
-                  "onDelete": "restrict",
-                  "source": {
-                    "columns": [
-                      "mediaAssetId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ProjectImage"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "MediaAsset"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "mediaAssetId"
-                  ],
-                  "name": "ProjectImage_mediaAssetId_idx_523c8890",
-                  "prefix": "ProjectImage_mediaAssetId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "projectId"
-                  ],
-                  "name": "ProjectImage_projectId_idx_a96e4d92",
-                  "prefix": "ProjectImage_projectId_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "id"
-                ]
-              },
-              "uniques": [
-                {
-                  "columns": [
-                    "projectId",
-                    "sortOrder"
-                  ]
-                },
-                {
-                  "columns": [
-                    "projectId",
-                    "mediaAssetId"
-                  ]
-                }
-              ]
-            },
-            "ProjectLink": {
-              "checks": [
-                {
-                  "expression": "\"type\" IN ('REPOSITORY', 'LIVE_DEMO', 'DOCUMENTATION', 'CASE_STUDY', 'OTHER')",
-                  "name": "ProjectLink_type_check_1f0f56e5",
-                  "prefix": "ProjectLink_type_check"
-                }
-              ],
-              "columns": {
-                "createdAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                },
-                "id": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "label": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                },
-                "projectId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "sortOrder": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "default": {
-                    "kind": "literal",
-                    "value": 0
-                  },
-                  "nullable": false
-                },
-                "type": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false,
-                  "valueSet": {
-                    "entityKind": "valueSet",
-                    "entityName": "ProjectLinkType",
-                    "namespaceId": "public",
-                    "plane": "storage"
-                  }
-                },
-                "updatedAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                },
-                "url": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [
-                {
-                  "index": {
-                    "name": "ProjectLink_projectId_idx_a96e4d92"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "projectId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ProjectLink"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Project"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "projectId"
-                  ],
-                  "name": "ProjectLink_projectId_idx_a96e4d92",
-                  "prefix": "ProjectLink_projectId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "projectId",
-                    "sortOrder"
-                  ],
-                  "name": "ProjectLink_projectId_sortOrder_idx_853b79e8",
-                  "prefix": "ProjectLink_projectId_sortOrder_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "id"
-                ]
-              },
-              "uniques": [
-                {
-                  "columns": [
-                    "projectId",
-                    "url"
-                  ]
-                }
-              ]
-            },
-            "ProjectSkill": {
-              "columns": {
-                "projectId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "skillId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "sortOrder": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "default": {
-                    "kind": "literal",
-                    "value": 0
-                  },
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [
-                {
-                  "index": {
-                    "name": "ProjectSkill_projectId_idx_a96e4d92"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "projectId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ProjectSkill"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Project"
-                  }
-                },
-                {
-                  "index": {
-                    "name": "ProjectSkill_skillId_idx_6e19993d"
-                  },
-                  "onDelete": "restrict",
-                  "source": {
-                    "columns": [
-                      "skillId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ProjectSkill"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Skill"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "projectId"
-                  ],
-                  "name": "ProjectSkill_projectId_idx_a96e4d92",
-                  "prefix": "ProjectSkill_projectId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "skillId"
-                  ],
-                  "name": "ProjectSkill_skillId_idx_6e19993d",
-                  "prefix": "ProjectSkill_skillId_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "projectId",
-                  "skillId"
-                ]
-              },
-              "uniques": []
-            },
-            "ProjectView": {
-              "columns": {
-                "id": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "projectId": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "referrer": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                },
-                "viewedAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                },
-                "visitorHash": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                }
-              },
-              "foreignKeys": [
-                {
-                  "index": {
-                    "name": "ProjectView_projectId_idx_a96e4d92"
-                  },
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "projectId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "ProjectView"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Project"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "projectId"
-                  ],
-                  "name": "ProjectView_projectId_idx_a96e4d92",
-                  "prefix": "ProjectView_projectId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "projectId",
-                    "viewedAt"
-                  ],
-                  "name": "ProjectView_projectId_viewedAt_idx_08df9949",
-                  "prefix": "ProjectView_projectId_viewedAt_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "viewedAt"
-                  ],
-                  "name": "ProjectView_viewedAt_idx_01eec48b",
-                  "prefix": "ProjectView_viewedAt_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "visitorHash",
-                    "viewedAt"
-                  ],
-                  "name": "ProjectView_visitorHash_viewedAt_idx_3e54e954",
-                  "prefix": "ProjectView_visitorHash_viewedAt_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "id"
-                ]
-              },
-              "uniques": []
-            },
-            "Session": {
+            "sessions": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -7889,7 +7982,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Session_userId_idx_a489d58a"
+                    "name": "sessions_userId_idx_a489d58a"
                   },
                   "onDelete": "cascade",
                   "source": {
@@ -7897,14 +7990,14 @@
                       "userId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Session"
+                    "tableName": "sessions"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "User"
+                    "tableName": "users"
                   }
                 }
               ],
@@ -7914,16 +8007,16 @@
                     "userId",
                     "expiresAt"
                   ],
-                  "name": "Session_userId_expiresAt_idx_9721b56d",
-                  "prefix": "Session_userId_expiresAt_idx",
+                  "name": "sessions_userId_expiresAt_idx_9721b56d",
+                  "prefix": "sessions_userId_expiresAt_idx",
                   "unique": false
                 },
                 {
                   "columns": [
                     "userId"
                   ],
-                  "name": "Session_userId_idx_a489d58a",
-                  "prefix": "Session_userId_idx",
+                  "name": "sessions_userId_idx_a489d58a",
+                  "prefix": "sessions_userId_idx",
                   "unique": false
                 }
               ],
@@ -7940,7 +8033,91 @@
                 }
               ]
             },
-            "Skill": {
+            "skill_groups": {
+              "columns": {
+                "createdAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                },
+                "description": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
+                },
+                "id": {
+                  "codecId": "pg/uuid@1",
+                  "dataType": "pg/uuid",
+                  "nullable": false
+                },
+                "isVisible": {
+                  "codecId": "pg/bool@1",
+                  "dataType": "pg/bool",
+                  "default": {
+                    "kind": "literal",
+                    "value": true
+                  },
+                  "nullable": false
+                },
+                "name": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "slug": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "sortOrder": {
+                  "codecId": "pg/int4@1",
+                  "dataType": "pg/int4",
+                  "default": {
+                    "kind": "literal",
+                    "value": 0
+                  },
+                  "nullable": false
+                },
+                "updatedAt": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "dataType": "pg/timestamptz",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [
+                {
+                  "columns": [
+                    "isVisible",
+                    "sortOrder"
+                  ],
+                  "name": "skill_groups_isVisible_sortOrder_idx_da4c18e1",
+                  "prefix": "skill_groups_isVisible_sortOrder_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "slug"
+                  ]
+                }
+              ]
+            },
+            "skills": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -8031,7 +8208,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Skill_groupId_idx_e2fb5578"
+                    "name": "skills_groupId_idx_e2fb5578"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -8039,14 +8216,14 @@
                       "groupId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Skill"
+                    "tableName": "skills"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "SkillGroup"
+                    "tableName": "skill_groups"
                   }
                 }
               ],
@@ -8055,8 +8232,8 @@
                   "columns": [
                     "groupId"
                   ],
-                  "name": "Skill_groupId_idx_e2fb5578",
-                  "prefix": "Skill_groupId_idx",
+                  "name": "skills_groupId_idx_e2fb5578",
+                  "prefix": "skills_groupId_idx",
                   "unique": false
                 },
                 {
@@ -8065,8 +8242,8 @@
                     "isVisible",
                     "sortOrder"
                   ],
-                  "name": "Skill_groupId_isVisible_sortOrder_idx_da13bd43",
-                  "prefix": "Skill_groupId_isVisible_sortOrder_idx",
+                  "name": "skills_groupId_isVisible_sortOrder_idx_da13bd43",
+                  "prefix": "skills_groupId_isVisible_sortOrder_idx",
                   "unique": false
                 },
                 {
@@ -8074,8 +8251,8 @@
                     "isFeatured",
                     "isVisible"
                   ],
-                  "name": "Skill_isFeatured_isVisible_idx_18e99987",
-                  "prefix": "Skill_isFeatured_isVisible_idx",
+                  "name": "skills_isFeatured_isVisible_idx_18e99987",
+                  "prefix": "skills_isFeatured_isVisible_idx",
                   "unique": false
                 }
               ],
@@ -8092,91 +8269,7 @@
                 }
               ]
             },
-            "SkillGroup": {
-              "columns": {
-                "createdAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                },
-                "description": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": true
-                },
-                "id": {
-                  "codecId": "pg/uuid@1",
-                  "dataType": "pg/uuid",
-                  "nullable": false
-                },
-                "isVisible": {
-                  "codecId": "pg/bool@1",
-                  "dataType": "pg/bool",
-                  "default": {
-                    "kind": "literal",
-                    "value": true
-                  },
-                  "nullable": false
-                },
-                "name": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                },
-                "slug": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                },
-                "sortOrder": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "default": {
-                    "kind": "literal",
-                    "value": 0
-                  },
-                  "nullable": false
-                },
-                "updatedAt": {
-                  "codecId": "pg/timestamptz-temporal@1",
-                  "dataType": "pg/timestamptz",
-                  "default": {
-                    "expression": "now()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [],
-              "indexes": [
-                {
-                  "columns": [
-                    "isVisible",
-                    "sortOrder"
-                  ],
-                  "name": "SkillGroup_isVisible_sortOrder_idx_da4c18e1",
-                  "prefix": "SkillGroup_isVisible_sortOrder_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "id"
-                ]
-              },
-              "uniques": [
-                {
-                  "columns": [
-                    "slug"
-                  ]
-                }
-              ]
-            },
-            "SocialLink": {
+            "social_links": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -8257,7 +8350,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "SocialLink_profileId_idx_d9cdfcaf"
+                    "name": "social_links_profileId_idx_d9cdfcaf"
                   },
                   "onDelete": "cascade",
                   "source": {
@@ -8265,14 +8358,14 @@
                       "profileId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "SocialLink"
+                    "tableName": "social_links"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Profile"
+                    "tableName": "profiles"
                   }
                 }
               ],
@@ -8281,8 +8374,8 @@
                   "columns": [
                     "profileId"
                   ],
-                  "name": "SocialLink_profileId_idx_d9cdfcaf",
-                  "prefix": "SocialLink_profileId_idx",
+                  "name": "social_links_profileId_idx_d9cdfcaf",
+                  "prefix": "social_links_profileId_idx",
                   "unique": false
                 },
                 {
@@ -8291,8 +8384,8 @@
                     "isVisible",
                     "sortOrder"
                   ],
-                  "name": "SocialLink_profileId_isVisible_sortOrder_idx_8a1dfaa9",
-                  "prefix": "SocialLink_profileId_isVisible_sortOrder_idx",
+                  "name": "social_links_profileId_isVisible_sortOrder_idx_8a1dfaa9",
+                  "prefix": "social_links_profileId_isVisible_sortOrder_idx",
                   "unique": false
                 }
               ],
@@ -8310,12 +8403,12 @@
                 }
               ]
             },
-            "Testimonial": {
+            "testimonials": {
               "checks": [
                 {
                   "expression": "\"status\" IN ('DRAFT', 'PUBLISHED', 'HIDDEN')",
-                  "name": "Testimonial_status_check_4aaa56f2",
-                  "prefix": "Testimonial_status_check"
+                  "name": "testimonials_status_check_4aaa56f2",
+                  "prefix": "testimonials_status_check"
                 }
               ],
               "columns": {
@@ -8409,7 +8502,7 @@
               "foreignKeys": [
                 {
                   "index": {
-                    "name": "Testimonial_avatarId_idx_14b51a84"
+                    "name": "testimonials_avatarId_idx_14b51a84"
                   },
                   "onDelete": "setNull",
                   "source": {
@@ -8417,14 +8510,14 @@
                       "avatarId"
                     ],
                     "namespaceId": "public",
-                    "tableName": "Testimonial"
+                    "tableName": "testimonials"
                   },
                   "target": {
                     "columns": [
                       "id"
                     ],
                     "namespaceId": "public",
-                    "tableName": "MediaAsset"
+                    "tableName": "media_assets"
                   }
                 }
               ],
@@ -8433,8 +8526,8 @@
                   "columns": [
                     "avatarId"
                   ],
-                  "name": "Testimonial_avatarId_idx_14b51a84",
-                  "prefix": "Testimonial_avatarId_idx",
+                  "name": "testimonials_avatarId_idx_14b51a84",
+                  "prefix": "testimonials_avatarId_idx",
                   "unique": false
                 },
                 {
@@ -8443,8 +8536,8 @@
                     "featured",
                     "sortOrder"
                   ],
-                  "name": "Testimonial_status_featured_sortOrder_idx_7714cf7d",
-                  "prefix": "Testimonial_status_featured_sortOrder_idx",
+                  "name": "testimonials_status_featured_sortOrder_idx_7714cf7d",
+                  "prefix": "testimonials_status_featured_sortOrder_idx",
                   "unique": false
                 }
               ],
@@ -8455,7 +8548,7 @@
               },
               "uniques": []
             },
-            "User": {
+            "users": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -8520,8 +8613,8 @@
                   "columns": [
                     "createdAt"
                   ],
-                  "name": "User_createdAt_idx_9575dbd7",
-                  "prefix": "User_createdAt_idx",
+                  "name": "users_createdAt_idx_9575dbd7",
+                  "prefix": "users_createdAt_idx",
                   "unique": false
                 }
               ],
@@ -8538,7 +8631,7 @@
                 }
               ]
             },
-            "Verification": {
+            "verifications": {
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-temporal@1",
@@ -8586,8 +8679,8 @@
                     "identifier",
                     "expiresAt"
                   ],
-                  "name": "Verification_identifier_expiresAt_idx_edc67a3a",
-                  "prefix": "Verification_identifier_expiresAt_idx",
+                  "name": "verifications_identifier_expiresAt_idx_edc67a3a",
+                  "prefix": "verifications_identifier_expiresAt_idx",
                   "unique": false
                 }
               ],
@@ -8701,10 +8794,10 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "1957495e80edd1ebc22418eeb2da5088c6a9887003ab324a951d04d5c5031bcb"
+    "storageHash": "19550cef32504175981cae9df0dfc2fdf84890e992eb3e9fc63019260ba436ee"
   },
   "execution": {
-    "executionHash": "93fc53ec5deea82c19d669695755e52534f2e9f7666450489b71f913d786cbc1",
+    "executionHash": "fa6b0cfb3d91fdd369e738b4ea9a66b92d47eb509100667054a2a927374782e0",
     "mutations": {
       "defaults": [
         {
@@ -8713,7 +8806,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Account",
+            "entry": "accounts",
             "field": "id",
             "namespace": "public"
           }
@@ -8728,7 +8821,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Account",
+            "entry": "accounts",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8739,7 +8832,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "AuditLog",
+            "entry": "audit_logs",
             "field": "id",
             "namespace": "public"
           }
@@ -8750,7 +8843,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "BlogCategory",
+            "entry": "blog_categories",
             "field": "id",
             "namespace": "public"
           }
@@ -8765,7 +8858,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "BlogCategory",
+            "entry": "blog_categories",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8776,7 +8869,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "BlogPost",
+            "entry": "blog_posts",
             "field": "id",
             "namespace": "public"
           }
@@ -8791,7 +8884,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "BlogPost",
+            "entry": "blog_posts",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8802,7 +8895,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "BlogTag",
+            "entry": "blog_tags",
             "field": "id",
             "namespace": "public"
           }
@@ -8817,7 +8910,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "BlogTag",
+            "entry": "blog_tags",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8828,7 +8921,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Certification",
+            "entry": "certifications",
             "field": "id",
             "namespace": "public"
           }
@@ -8843,7 +8936,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Certification",
+            "entry": "certifications",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8854,7 +8947,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ContactMessage",
+            "entry": "contact_messages",
             "field": "id",
             "namespace": "public"
           }
@@ -8869,7 +8962,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ContactMessage",
+            "entry": "contact_messages",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8880,7 +8973,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Education",
+            "entry": "educations",
             "field": "id",
             "namespace": "public"
           }
@@ -8895,7 +8988,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Education",
+            "entry": "educations",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8906,7 +8999,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Experience",
+            "entry": "experiences",
             "field": "id",
             "namespace": "public"
           }
@@ -8921,7 +9014,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Experience",
+            "entry": "experiences",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8932,7 +9025,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "MediaAsset",
+            "entry": "media_assets",
             "field": "id",
             "namespace": "public"
           }
@@ -8947,7 +9040,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "MediaAsset",
+            "entry": "media_assets",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8958,7 +9051,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "NewsletterSubscriber",
+            "entry": "newsletter_subscribers",
             "field": "id",
             "namespace": "public"
           }
@@ -8973,7 +9066,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "NewsletterSubscriber",
+            "entry": "newsletter_subscribers",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -8984,7 +9077,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "PageSeo",
+            "entry": "page_sees",
             "field": "id",
             "namespace": "public"
           }
@@ -8999,7 +9092,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "PageSeo",
+            "entry": "page_sees",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9010,7 +9103,29 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "PageView",
+            "entry": "page_views",
+            "field": "id",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "uuidv4",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "portfolio_embeddings",
+            "field": "id",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "uuidv7",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "profile_items",
             "field": "id",
             "namespace": "public"
           }
@@ -9025,7 +9140,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Profile",
+            "entry": "profile_items",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9036,7 +9151,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProfileItem",
+            "entry": "profile_languages",
             "field": "id",
             "namespace": "public"
           }
@@ -9051,7 +9166,22 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProfileItem",
+            "entry": "profile_languages",
+            "field": "updatedAt",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "instantNow",
+            "kind": "generator"
+          },
+          "onUpdate": {
+            "id": "instantNow",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "profiles",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9062,7 +9192,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProfileLanguage",
+            "entry": "project_images",
             "field": "id",
             "namespace": "public"
           }
@@ -9077,7 +9207,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProfileLanguage",
+            "entry": "project_images",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9088,7 +9218,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Project",
+            "entry": "project_links",
             "field": "id",
             "namespace": "public"
           }
@@ -9103,7 +9233,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Project",
+            "entry": "project_links",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9114,7 +9244,18 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProjectImage",
+            "entry": "project_views",
+            "field": "id",
+            "namespace": "public"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "uuidv7",
+            "kind": "generator"
+          },
+          "ref": {
+            "entry": "projects",
             "field": "id",
             "namespace": "public"
           }
@@ -9129,7 +9270,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProjectImage",
+            "entry": "projects",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9140,7 +9281,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProjectLink",
+            "entry": "sessions",
             "field": "id",
             "namespace": "public"
           }
@@ -9155,7 +9296,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProjectLink",
+            "entry": "sessions",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9166,18 +9307,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "ProjectView",
-            "field": "id",
-            "namespace": "public"
-          }
-        },
-        {
-          "onCreate": {
-            "id": "uuidv7",
-            "kind": "generator"
-          },
-          "ref": {
-            "entry": "Session",
+            "entry": "skill_groups",
             "field": "id",
             "namespace": "public"
           }
@@ -9192,7 +9322,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Session",
+            "entry": "skill_groups",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9203,7 +9333,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Skill",
+            "entry": "skills",
             "field": "id",
             "namespace": "public"
           }
@@ -9218,7 +9348,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Skill",
+            "entry": "skills",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9229,7 +9359,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "SkillGroup",
+            "entry": "social_links",
             "field": "id",
             "namespace": "public"
           }
@@ -9244,7 +9374,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "SkillGroup",
+            "entry": "social_links",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9255,7 +9385,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "SocialLink",
+            "entry": "testimonials",
             "field": "id",
             "namespace": "public"
           }
@@ -9270,7 +9400,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "SocialLink",
+            "entry": "testimonials",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9281,7 +9411,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Testimonial",
+            "entry": "users",
             "field": "id",
             "namespace": "public"
           }
@@ -9296,7 +9426,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "Testimonial",
+            "entry": "users",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9307,7 +9437,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "User",
+            "entry": "verifications",
             "field": "id",
             "namespace": "public"
           }
@@ -9322,33 +9452,7 @@
             "kind": "generator"
           },
           "ref": {
-            "entry": "User",
-            "field": "updatedAt",
-            "namespace": "public"
-          }
-        },
-        {
-          "onCreate": {
-            "id": "uuidv7",
-            "kind": "generator"
-          },
-          "ref": {
-            "entry": "Verification",
-            "field": "id",
-            "namespace": "public"
-          }
-        },
-        {
-          "onCreate": {
-            "id": "instantNow",
-            "kind": "generator"
-          },
-          "onUpdate": {
-            "id": "instantNow",
-            "kind": "generator"
-          },
-          "ref": {
-            "entry": "Verification",
+            "entry": "verifications",
             "field": "updatedAt",
             "namespace": "public"
           }
@@ -9365,6 +9469,7 @@
       "lateral": true,
       "limit": true,
       "orderBy": true,
+      "pgvector.cosine": true,
       "returning": true
     },
     "sql": {
@@ -9383,7 +9488,48 @@
       "scalarList": true
     }
   },
-  "extensions": {},
+  "extensions": {
+    "pgvector": {
+      "capabilities": {
+        "postgres": {
+          "pgvector.cosine": true
+        }
+      },
+      "familyId": "sql",
+      "id": "pgvector",
+      "kind": "extension",
+      "targetId": "postgres",
+      "types": {
+        "codecTypes": {
+          "import": {
+            "alias": "PgVectorTypes",
+            "named": "CodecTypes",
+            "package": "@internal/extension-pgvector/codec-types"
+          },
+          "parameterizedOutputTypes": {
+            "alias": "PgVectorParameterizedOutputTypes",
+            "named": "ParameterizedOutputTypesForTypeParams",
+            "package": "@internal/extension-pgvector/codec-types"
+          }
+        },
+        "operationTypes": {
+          "import": {
+            "alias": "PgVectorOperationTypes",
+            "named": "OperationTypes",
+            "package": "@internal/extension-pgvector/operation-types"
+          }
+        },
+        "queryOperationTypes": {
+          "import": {
+            "alias": "PgVectorQueryOperationTypes",
+            "named": "QueryOperationTypes",
+            "package": "@internal/extension-pgvector/operation-types"
+          }
+        }
+      },
+      "version": "0.0.1"
+    }
+  },
   "meta": {},
   "_generated": {
     "warning": "⚠️  GENERATED FILE - DO NOT EDIT",

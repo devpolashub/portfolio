@@ -52,13 +52,13 @@ export default function Logo({
       {showName && (
         <span
           className={cn(
-            "-ml-1 font-black text-2xl xl:text-3xl leading-none",
+            "font-black text-2xl xl:text-3xl leading-none",
             "tracking-[0.06em] brand-text-gradient",
             "transition-colors duration-200 ",
             nameClassName,
           )}
         >
-          OLAS
+          devpolas
         </span>
       )}
     </Link>

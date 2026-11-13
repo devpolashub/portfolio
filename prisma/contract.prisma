@@ -74,6 +74,10 @@ enum TestimonialStatus {
   HIDDEN
 }
 
+types {
+  Embedding1536 = pgvector.Vector(1536)
+}
+
 // BETTER AUTH
 model User {
   id            String     @id @onCreate(uuid(7))
@@ -92,6 +96,8 @@ model User {
   updatedAt     DateTime   @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([createdAt])
+
+  @@map("users")
 }
 
 model Session {
@@ -108,6 +114,8 @@ model Session {
   updatedAt DateTime @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([userId, expiresAt])
+
+  @@map("sessions")
 }
 
 model Account {
@@ -131,6 +139,8 @@ model Account {
 
   @@unique([providerId, accountId])
   @@index([userId])
+
+  @@map("accounts")
 }
 
 model Verification {
@@ -143,6 +153,8 @@ model Verification {
   updatedAt  DateTime @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([identifier, expiresAt])
+
+  @@map("verifications")
 }
 
 // PROFILE
@@ -180,6 +192,8 @@ model Profile {
 
   createdAt     DateTime          @default(now())
   updatedAt     DateTime          @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@map("profiles")
 }
 
 model SocialLink {
@@ -201,6 +215,8 @@ model SocialLink {
 
   @@unique([profileId, platform])
   @@index([profileId, isVisible, sortOrder])
+
+  @@map("social_links")
 }
 
 model ProfileLanguage {
@@ -219,6 +235,8 @@ model ProfileLanguage {
   updatedAt   DateTime @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([profileId, isVisible, sortOrder])
+
+  @@map("profile_languages")
 }
 
 model ProfileItem {
@@ -237,6 +255,8 @@ model ProfileItem {
   updatedAt   DateTime        @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([profileId, type, isVisible, sortOrder])
+
+  @@map("profile_items")
 }
 
 // SKILLS
@@ -255,6 +275,8 @@ model SkillGroup {
   updatedAt   DateTime @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([isVisible, sortOrder])
+
+  @@map("skill_groups")
 }
 
 model Skill {
@@ -283,6 +305,8 @@ model Skill {
 
   @@index([groupId, isVisible, sortOrder])
   @@index([isFeatured, isVisible])
+
+  @@map("skills")
 }
 
 // PROJECTS
@@ -324,6 +348,8 @@ model Project {
   @@index([published, category, sortOrder])
   @@index([published, publishedAt])
   @@fullTextIndex([title, summary, description], name: "project_search")
+
+  @@map("projects")
 }
 
 model ProjectSkill {
@@ -337,6 +363,8 @@ model ProjectSkill {
 
   @@id([projectId, skillId])
   @@index([skillId])
+
+  @@map("project_skills")
 }
 
 model ProjectLink {
@@ -355,6 +383,8 @@ model ProjectLink {
 
   @@unique([projectId, url])
   @@index([projectId, sortOrder])
+
+  @@map("project_links")
 }
 
 // CERTIFICATIONS
@@ -384,6 +414,8 @@ model Certification {
 
   @@index([isVisible, sortOrder])
   @@index([issueDate])
+
+  @@map("certifications")
 }
 
 model CertificationSkill {
@@ -395,6 +427,8 @@ model CertificationSkill {
 
   @@id([certificationId, skillId])
   @@index([skillId])
+
+  @@map("certification_skills")
 }
 
 // EXPERIENCE
@@ -430,6 +464,8 @@ model Experience {
 
   @@index([isVisible, sortOrder])
   @@index([isCurrent, startDate])
+
+  @@map("experiences")
 }
 
 model ExperienceSkill {
@@ -441,6 +477,8 @@ model ExperienceSkill {
 
   @@id([experienceId, skillId])
   @@index([skillId])
+
+  @@map("experience_skills")
 }
 
 // EDUCATION
@@ -471,6 +509,8 @@ model Education {
 
   @@index([isVisible, sortOrder])
   @@index([startDate])
+
+  @@map("educations")
 }
 
 // CONTACT MESSAGES
@@ -491,6 +531,8 @@ model ContactMessage {
   updatedAt DateTime             @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([status, createdAt])
+
+  @@map("contact_messages")
 }
 
 // MEDIA ASSETS
@@ -535,6 +577,8 @@ model MediaAsset {
   @@unique([provider, publicId])
   @@index([kind, createdAt])
   @@index([folder, createdAt])
+
+  @@map("media_assets")
 }
 
 model ProjectImage {
@@ -555,6 +599,8 @@ model ProjectImage {
 
   @@unique([projectId, sortOrder])
   @@unique([projectId, mediaAssetId])
+
+  @@map("project_images")
 }
 
 // TESTIMONIALS
@@ -579,6 +625,8 @@ model Testimonial {
   updatedAt  DateTime          @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([status, featured, sortOrder])
+
+  @@map("testimonials")
 }
 
 // BLOG CATEGORIES
@@ -598,6 +646,8 @@ model BlogCategory {
   updatedAt   DateTime   @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([isVisible, sortOrder])
+
+  @@map("blog_categories")
 }
 
 // BLOG TAGS
@@ -611,6 +661,8 @@ model BlogTag {
 
   createdAt DateTime      @default(now())
   updatedAt DateTime      @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@map("blog_tags")
 }
 
 // BLOG POSTS
@@ -648,6 +700,8 @@ model BlogPost {
   @@index([authorId])
   @@index([featured, status])
   @@fullTextIndex([title, excerpt, content], name: "blog_post_search")
+
+  @@map("blog_posts")
 }
 
 model BlogPostTag {
@@ -659,6 +713,8 @@ model BlogPostTag {
 
   @@id([postId, tagId])
   @@index([tagId])
+
+  @@map("blog_post_tags")
 }
 
 // PAGE SEO
@@ -683,6 +739,8 @@ model PageSeo {
 
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @default(now()) @onCreate(now()) @onUpdate(now())
+
+  @@map("page_sees")
 }
 
 // NEWSLETTER
@@ -706,6 +764,8 @@ model NewsletterSubscriber {
   updatedAt             DateTime         @default(now()) @onCreate(now()) @onUpdate(now())
 
   @@index([status, createdAt])
+
+  @@map("newsletter_subscribers")
 }
 
 // AUDIT LOGS
@@ -726,6 +786,8 @@ model AuditLog {
   @@index([userId, createdAt])
   @@index([entityType, entityId, createdAt])
   @@index([action, createdAt])
+
+  @@map("audit_logs")
 }
 
 // PAGE ANALYTICS
@@ -743,6 +805,8 @@ model PageView {
   @@index([path, viewedAt])
   @@index([visitorHash, viewedAt])
   @@index([viewedAt])
+
+  @@map("page_views")
 }
 
 // PROJECT ANALYTICS
@@ -760,4 +824,16 @@ model ProjectView {
   @@index([projectId, viewedAt])
   @@index([visitorHash, viewedAt])
   @@index([viewedAt])
+
+  @@map("project_views")
+}
+
+model PortfolioEmbedding {
+  // Fields
+  id        String         @id @onCreate(uuid())
+  content   String?
+  metadata  Json?
+  embedding Embedding1536?
+
+  @@map("portfolio_embeddings")
 }
