@@ -1,53 +1,33 @@
-const siteUrl = "https://www.polas.dev";
+import { profile } from "@/data/profile";
 
 export const siteConfig = {
-  name: "Polas Chandra Barmon",
-  username: "devpolas",
+  name: profile.name,
+  username: profile.username,
   brandName: "POLAS",
 
-  title: "Full-Stack & AI Engineer",
+  title: profile.role,
+  headline: profile.headline,
 
-  headline:
-    "Building thoughtful digital products with full-stack engineering and AI.",
-
+  // ~155 characters: fits Google's snippet length.
   description:
-    "Polas Chandra Barmon is a Full-Stack Developer focused on Next.js, React, TypeScript, Node.js, PostgreSQL, and AI engineering. Building reliable, performant, and user-focused digital products.",
+    "Polas Chandra Barmon is a Full-Stack & AI Engineer building reliable web apps and AI-powered features with Next.js, TypeScript, Node.js, PostgreSQL, and RAG.",
 
-  url: siteUrl,
-  email: "hello@polas.dev",
+  url: profile.website,
+  email: profile.email,
   locale: "en_US",
+  twitterHandle: "@XTWPCB",
 
   social: {
-    github: "https://github.com/devpolas",
-    linkedin: "https://www.linkedin.com/in/devpolas/",
-    facebook: "https://www.facebook.com/devpolas",
-    telegram: "https://t.me/devpolas",
-    whatsapp: "https://wa.me/message/CB3BJMCEUNTDD1",
+    github: profile.social.github,
+    linkedin: profile.social.linkedin,
+    x: profile.social.x,
+    facebook: profile.social.facebook[0],
+    telegram: profile.social.telegram,
+    whatsapp: profile.social.whatsapp,
   },
 
-  location: {
-    city: "Thakurgaon",
-    division: "Rangpur Division",
-    country: "Bangladesh",
-    countryCode: "BD",
-  },
-
-  brand: {
-    name: "Palash",
-    botanicalName: "Butea monosperma",
-    inspiration: "Flame of the Forest",
-    tagline: "Thoughtful engineering. Meaningful products.",
-    philosophy:
-      "Building reliable, accessible, and user-focused digital experiences.",
-
-    colors: {
-      ember: "#B83A22",
-      flame: "#F17B38",
-      leaf: "#174B35",
-      petal: "#F7F1E5",
-      midnight: "#151B17",
-    },
-  },
+  location: profile.location,
+  brand: profile.brand,
 
   professional: {
     specialties: [
@@ -67,24 +47,28 @@ export const siteConfig = {
       "JavaScript",
       "Node.js",
       "Express.js",
+      "NestJS",
       "PostgreSQL",
       "Prisma ORM",
       "MongoDB",
       "Mongoose",
+      "Redis",
       "Python",
       "FastAPI",
       "LangChain",
       "LangGraph",
       "Retrieval-Augmented Generation",
-      "Vector Databases",
+      "Embeddings",
+      "Vector Search",
       "AI Agents",
-      "Model Context Protocol",
+      "n8n",
     ],
 
     interests: [
       "System Design",
       "Software Architecture",
       "AI Applications",
+      "Agentic Workflows",
       "Developer Experience",
       "Performance Optimization",
     ],

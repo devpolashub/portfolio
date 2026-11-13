@@ -66,6 +66,29 @@ export const skillGroups = [
     skills: ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM", "Mongoose"],
   },
   {
+    // NEW: this was in the README but missing from the site.
+    title: "AI & LLM Engineering",
+    description:
+      "Integrating language models into applications with retrieval and tools.",
+    skills: [
+      "LLM Application Development",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "Embeddings",
+      "Vector Search",
+      "AI Agents",
+      "Tool Calling",
+    ],
+  },
+  {
+    // NEW
+    title: "Automation & AI Workflows",
+    description:
+      "Connecting services, events, and AI into automated workflows.",
+    skills: ["n8n", "Workflow Automation", "Webhooks", "API Integrations"],
+  },
+  {
     title: "Authentication & Application Security",
     description: "Identity, sessions, and access control.",
     skills: [
@@ -100,6 +123,22 @@ export const skillGroups = [
   },
 ] as const satisfies readonly SkillGroup[];
 
+/** Honest "currently learning" list, kept separate from proven skills. */
+export const exploring = {
+  aiSystems: [
+    "Model Context Protocol",
+    "AI Evaluation",
+    "AI Observability",
+    "Advanced Agent Architectures",
+  ],
+  infrastructure: [
+    "GitHub Actions",
+    "AWS",
+    "Production Observability",
+    "Vector Infrastructure",
+  ],
+} as const;
+
 export const engineeringPractices = [
   "Responsive Web Design",
   "API Design",
@@ -125,7 +164,7 @@ export const engineeringPractices = [
   "Containerization",
   "Reverse Proxy Configuration",
   "Environment Configuration",
-  "CI/CD",
+  "CI/CD", // TODO: README lists GitHub Actions under "exploring"; keep only if you've shipped CI/CD.
 ] as const;
 
 export const areasOfInterest = [
@@ -135,5 +174,6 @@ export const areasOfInterest = [
   "Real-Time Applications",
   "Performance Optimization",
   "AI Integration",
+  "Agentic Workflows",
   "Developer Experience",
 ] as const;
